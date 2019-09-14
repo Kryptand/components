@@ -1,0 +1,7 @@
+{
+  "appId": "kryptand.cosmosurge",
+  "appName": "cosmosurge",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}

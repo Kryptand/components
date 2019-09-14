@@ -1,0 +1,8 @@
+{
+  "name": "kryptand",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

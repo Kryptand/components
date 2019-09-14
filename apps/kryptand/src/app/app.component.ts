@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'myworkspace-root',
+  selector: 'kryptand-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

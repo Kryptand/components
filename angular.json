@@ -10,7 +10,7 @@
       },
       "root": "apps/kryptand",
       "sourceRoot": "apps/kryptand/src",
-      "prefix": "myworkspace",
+      "prefix": "kryptand",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -87,12 +87,12 @@
             "exclude": ["**/node_modules/**", "!apps/kryptand/**"]
           }
         },
-        "test": {
+        "calrum": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/kryptand/jest.config.js",
             "tsConfig": "apps/kryptand/tsconfig.spec.json",
-            "setupFile": "apps/kryptand/src/test-setup.ts"
+            "setupFile": "apps/kryptand/src/calrum-setup.ts"
           }
         }
       }
@@ -123,6 +123,686 @@
           }
         }
       }
+    },
+    "patients": {
+      "projectType": "library",
+      "root": "libs/patients",
+      "sourceRoot": "libs/patients/src",
+      "prefix": "kryptand",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/patients/tsconfig.lib.json",
+              "libs/patients/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/patients/**"]
+          }
+        },
+        "calrum": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/patients/jest.config.js",
+            "tsConfig": "libs/patients/tsconfig.spec.json",
+            "setupFile": "libs/patients/src/calrum-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "cosmosurge": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "apps/cosmosurge",
+      "sourceRoot": "apps/cosmosurge/src",
+      "prefix": "kryptand",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/cosmosurge",
+            "index": "apps/cosmosurge/src/index.html",
+            "main": "apps/cosmosurge/src/main.ts",
+            "polyfills": "apps/cosmosurge/src/polyfills.ts",
+            "tsConfig": "apps/cosmosurge/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "apps/cosmosurge/src/favicon.ico",
+              "apps/cosmosurge/src/assets",
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "assets"
+              },
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
+              }
+            ],
+            "styles": ["apps/cosmosurge/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/cosmosurge/src/environments/environment.ts",
+                  "with": "apps/cosmosurge/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "cosmosurge:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "cosmosurge:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "cosmosurge:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/cosmosurge/tsconfig.app.json",
+              "apps/cosmosurge/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/cosmosurge/**"]
+          }
+        },
+        "calrum": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/cosmosurge/jest.config.js",
+            "tsConfig": "apps/cosmosurge/tsconfig.spec.json",
+            "setupFile": "apps/cosmosurge/src/calrum-setup.ts"
+          }
+        }
+      }
+    },
+    "cosmosurge-e2e": {
+      "root": "apps/cosmosurge-e2e",
+      "sourceRoot": "apps/cosmosurge-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/cosmosurge-e2e/cypress.json",
+            "tsConfig": "apps/cosmosurge-e2e/tsconfig.e2e.json",
+            "devServerTarget": "cosmosurge:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "cosmosurge:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/cosmosurge-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/cosmosurge-e2e/**"]
+          }
+        }
+      }
+    },
+    "calrum": {
+      "root": "apps/calrum",
+      "sourceRoot": "apps/calrum/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/web:build",
+          "options": {
+            "outputPath": "dist/apps/calrum",
+            "index": "apps/calrum/src/index.html",
+            "main": "apps/calrum/src/main.ts",
+            "polyfills": "apps/calrum/src/polyfills.ts",
+            "tsConfig": "apps/calrum/tsconfig.app.json",
+            "assets": [
+              "apps/calrum/src/favicon.ico",
+              "apps/calrum/src/assets",
+              "apps/calrum/src/manifest.json"
+            ],
+            "styles": ["apps/calrum/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/calrum/src/environments/environment.ts",
+                  "with": "apps/calrum/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "serviceWorker": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "calrum:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "calrum:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "apps/calrum/.eslintrc",
+            "tsConfig": [
+              "apps/calrum/tsconfig.app.json",
+              "apps/calrum/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/calrum/**"]
+          }
+        },
+        "calrum": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/calrum/jest.config.js",
+            "tsConfig": "apps/calrum/tsconfig.spec.json",
+            "setupFile": "apps/calrum/src/calrum-setup.ts"
+          }
+        }
+      }
+    },
+    "calrum-e2e": {
+      "root": "apps/calrum-e2e",
+      "sourceRoot": "apps/calrum-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/calrum-e2e/cypress.json",
+            "tsConfig": "apps/calrum-e2e/tsconfig.e2e.json",
+            "devServerTarget": "calrum:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "calrum:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "apps/calrum-e2e/.eslintrc",
+            "tsConfig": ["apps/calrum-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/calrum-e2e/**"]
+          }
+        }
+      }
+    },
+    "delayed-http-operations": {
+      "projectType": "library",
+      "root": "libs/delayed-http-operations",
+      "sourceRoot": "libs/delayed-http-operations/src",
+      "prefix": "kryptand",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/delayed-http-operations/tsconfig.lib.json",
+              "libs/delayed-http-operations/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/delayed-http-operations/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/delayed-http-operations/jest.config.js",
+            "tsConfig": "libs/delayed-http-operations/tsconfig.spec.json",
+            "setupFile": "libs/delayed-http-operations/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "breadcrumb": {
+      "projectType": "library",
+      "root": "libs/breadcrumb",
+      "sourceRoot": "libs/breadcrumb/src",
+      "prefix": "kryptand",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/breadcrumb/tsconfig.lib.json",
+            "project": "libs/breadcrumb/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/breadcrumb/tsconfig.lib.json",
+              "libs/breadcrumb/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/breadcrumb/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/breadcrumb/jest.config.js",
+            "tsConfig": "libs/breadcrumb/tsconfig.spec.json",
+            "setupFile": "libs/breadcrumb/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "cards": {
+      "projectType": "library",
+      "root": "libs/cards",
+      "sourceRoot": "libs/cards/src",
+      "prefix": "kryptand",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/cards/tsconfig.lib.json",
+            "project": "libs/cards/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/cards/tsconfig.lib.json",
+              "libs/cards/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/cards/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/cards/jest.config.js",
+            "tsConfig": "libs/cards/tsconfig.spec.json",
+            "setupFile": "libs/cards/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "loader": {
+      "projectType": "library",
+      "root": "libs/loader",
+      "sourceRoot": "libs/loader/src",
+      "prefix": "kryptand",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/loader/tsconfig.lib.json",
+            "project": "libs/loader/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/loader/tsconfig.lib.json",
+              "libs/loader/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/loader/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/loader/jest.config.js",
+            "tsConfig": "libs/loader/tsconfig.spec.json",
+            "setupFile": "libs/loader/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "message": {
+      "projectType": "library",
+      "root": "libs/message",
+      "sourceRoot": "libs/message/src",
+      "prefix": "kryptand",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/message/tsconfig.lib.json",
+            "project": "libs/message/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/message/tsconfig.lib.json",
+              "libs/message/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/message/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/message/jest.config.js",
+            "tsConfig": "libs/message/tsconfig.spec.json",
+            "setupFile": "libs/message/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "modal": {
+      "projectType": "library",
+      "root": "libs/modal",
+      "sourceRoot": "libs/modal/src",
+      "prefix": "kryptand",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/modal/tsconfig.lib.json",
+            "project": "libs/modal/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/modal/tsconfig.lib.json",
+              "libs/modal/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/modal/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/modal/jest.config.js",
+            "tsConfig": "libs/modal/tsconfig.spec.json",
+            "setupFile": "libs/modal/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "navigation": {
+      "projectType": "library",
+      "root": "libs/navigation",
+      "sourceRoot": "libs/navigation/src",
+      "prefix": "kryptand",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/navigation/tsconfig.lib.json",
+            "project": "libs/navigation/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/navigation/tsconfig.lib.json",
+              "libs/navigation/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/navigation/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/navigation/jest.config.js",
+            "tsConfig": "libs/navigation/tsconfig.spec.json",
+            "setupFile": "libs/navigation/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "notification": {
+      "projectType": "library",
+      "root": "libs/notification",
+      "sourceRoot": "libs/notification/src",
+      "prefix": "kryptand",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/notification/tsconfig.lib.json",
+            "project": "libs/notification/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/notification/tsconfig.lib.json",
+              "libs/notification/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/notification/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/notification/jest.config.js",
+            "tsConfig": "libs/notification/tsconfig.spec.json",
+            "setupFile": "libs/notification/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "panel": {
+      "projectType": "library",
+      "root": "libs/panel",
+      "sourceRoot": "libs/panel/src",
+      "prefix": "kryptand",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/panel/tsconfig.lib.json",
+            "project": "libs/panel/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/panel/tsconfig.lib.json",
+              "libs/panel/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/panel/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/panel/jest.config.js",
+            "tsConfig": "libs/panel/tsconfig.spec.json",
+            "setupFile": "libs/panel/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "tabs": {
+      "projectType": "library",
+      "root": "libs/tabs",
+      "sourceRoot": "libs/tabs/src",
+      "prefix": "kryptand",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/tabs/tsconfig.lib.json",
+            "project": "libs/tabs/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/tabs/tsconfig.lib.json",
+              "libs/tabs/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/tabs/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/tabs/jest.config.js",
+            "tsConfig": "libs/tabs/tsconfig.spec.json",
+            "setupFile": "libs/tabs/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "utility": {
+      "projectType": "library",
+      "root": "libs/utility",
+      "sourceRoot": "libs/utility/src",
+      "prefix": "kryptand",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/utility/tsconfig.lib.json",
+            "project": "libs/utility/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/utility/tsconfig.lib.json",
+              "libs/utility/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/utility/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/utility/jest.config.js",
+            "tsConfig": "libs/utility/tsconfig.spec.json",
+            "setupFile": "libs/utility/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {
@@ -130,11 +810,11 @@
   },
   "schematics": {
     "@nrwl/angular:application": {
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
+      "unitcalrumRunner": "jest",
+      "e2ecalrumRunner": "cypress"
     },
     "@nrwl/angular:library": {
-      "unitTestRunner": "jest"
+      "unitcalrumRunner": "jest"
     }
   },
   "defaultProject": "kryptand"

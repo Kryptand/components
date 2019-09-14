@@ -1,5 +1,5 @@
 {
-  "npmScope": "myworkspace",
+  "npmScope": "kryptand",
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": "*",
@@ -12,6 +12,48 @@
       "tags": []
     },
     "kryptand": {
+      "tags": []
+    },
+    "patients": {
+      "tags": []
+    },
+    "cosmosurge-e2e": {
+      "tags": []
+    },
+    "cosmosurge": {
+      "tags": []
+    },
+    "delayed-http-operations": {
+      "tags": []
+    },
+    "breadcrumb": {
+      "tags": []
+    },
+    "cards": {
+      "tags": []
+    },
+    "loader": {
+      "tags": []
+    },
+    "message": {
+      "tags": []
+    },
+    "modal": {
+      "tags": []
+    },
+    "navigation": {
+      "tags": []
+    },
+    "notification": {
+      "tags": []
+    },
+    "panel": {
+      "tags": []
+    },
+    "tabs": {
+      "tags": []
+    },
+    "utility": {
       "tags": []
     }
   }

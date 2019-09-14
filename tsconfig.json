@@ -5,6 +5,7 @@
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
@@ -15,7 +16,22 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@kryptand/patients": ["libs/patients/src/index.ts"],
+      "@kryptand/delayed-http-operations": [
+        "libs/delayed-http-operations/src/index.ts"
+      ],
+      "@kryptand/breadcrumb": ["libs/breadcrumb/src/index.ts"],
+      "@kryptand/cards": ["libs/cards/src/index.ts"],
+      "@kryptand/loader": ["libs/loader/src/index.ts"],
+      "@kryptand/message": ["libs/message/src/index.ts"],
+      "@kryptand/modal": ["libs/modal/src/index.ts"],
+      "@kryptand/navigation": ["libs/navigation/src/index.ts"],
+      "@kryptand/notification": ["libs/notification/src/index.ts"],
+      "@kryptand/panel": ["libs/panel/src/index.ts"],
+      "@kryptand/tabs": ["libs/tabs/src/index.ts"],
+      "@kryptand/utility": ["libs/utility/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
