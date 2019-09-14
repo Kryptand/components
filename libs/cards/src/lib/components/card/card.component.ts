@@ -15,10 +15,10 @@ import { CardImageDirective } from '../../directives/card-image.directive';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit, AfterContentChecked {
-  @ContentChild(CardContentDirective) content: CardContentDirective | null;
-  @ContentChild(CardFooterDirective) footer: CardFooterDirective | null;
-  @ContentChild(CardHeaderDirective) header: CardHeaderDirective | null;
-  @ContentChild(CardImageDirective) image: CardImageDirective | null;
+  @ContentChild(CardContentDirective,{static:true}) content: CardContentDirective | null;
+  @ContentChild(CardFooterDirective,{static:true}) footer: CardFooterDirective | null;
+  @ContentChild(CardHeaderDirective,{static:true}) header: CardHeaderDirective | null;
+  @ContentChild(CardImageDirective,{static:true}) image: CardImageDirective | null;
   constructor() {}
 
   ngOnInit() {}

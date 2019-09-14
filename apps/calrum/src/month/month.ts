@@ -11,6 +11,7 @@ import { renderCalendarRow } from "../utility/date";
 import { getWeekDaysForWeek } from "../utility/date-manipulation/week";
 import { getMonthNamesInYear } from "./../utility/date-manipulation/month";
 import { style } from "./month.styles";
+import { displayNotification } from '../utility/notification';
 @customElement("calrum-month")
 export class MonthComponent extends connect(store)(LitElement) {
   static get styles() {
@@ -20,12 +21,12 @@ export class MonthComponent extends connect(store)(LitElement) {
   @property({ type: Number }) currentYear = new Date().getFullYear();
   @property({ type: Number }) currentMonth = new Date().getMonth();
   @property({ type: Map }) events = new Map();
-  
+
   @eventOptions({ capture: false, passive: true })
   private yearChanged(e: any) {
     this.currentYear = Number.parseInt(e.target.value);
   }
-  
+
   @eventOptions({ capture: false, passive: true })
   private monthChanged(e: any) {
     this.currentMonth = new Date(e.target.value).getMonth();
@@ -33,9 +34,10 @@ export class MonthComponent extends connect(store)(LitElement) {
 
   @eventOptions({ capture: false, passive: true })
   private dateAddedEvent(e: any) {
-    console.debug(e);
-    store.dispatch(addEvent(e.detail));
+   displayNotification(e.detail.label,e.detail.date);
+  store.dispatch(addEvent(e.detail));
   }
+
   protected render(): TemplateResult {
     return html`
         <calrum-event-form

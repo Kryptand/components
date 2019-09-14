@@ -1,8 +1,9 @@
+import { Guid } from './guid';
+
 export type IdentifierPrecision = "day" | "seconds";
 export class DateIdentifier {
   identifier: number | undefined;
   constructor(date: Date, precision: IdentifierPrecision = "day") {
-    console.debug(date);
     const isMinutelyPrecise = precision === "day";
     const impreciseDate = new Date(new Date(date).setHours(0, 0, 0, 0));
     if (isMinutelyPrecise) {
@@ -20,7 +21,8 @@ export class DateIdentifier {
 }
 export class DateEvent {
   constructor() {}
-  id: number = new DateIdentifier(new Date(), "day").identifier as number;
+  id:string=new Guid().toString();
+  dateId: number = new DateIdentifier(new Date(), "day").identifier as number;
   date: Date = new Date();
   label?: string;
 }

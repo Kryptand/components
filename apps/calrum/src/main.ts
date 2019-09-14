@@ -15,6 +15,10 @@ import {  store } from "./+state/store";
 import "./skeleton/skeleton";
 import * as fromRouter from "./router";
 
+Notification.requestPermission(function(status) {
+  console.log('Notification permission status:', status);
+});
+
 @customElement("calrum-root")
 export class CalrumRootComponent extends connect(store)(LitElement) {
   static styles = css`

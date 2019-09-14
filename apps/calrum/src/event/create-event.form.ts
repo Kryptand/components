@@ -14,6 +14,7 @@ import '@vaadin/vaadin-text-field';
 import '@vaadin/vaadin-date-picker';
 import '@vaadin/vaadin-button';
 import '@vaadin/vaadin-form-layout';
+import { Guid } from '../models/guid';
 @customElement("calrum-event-form")
 export class CalrumRootComponent extends connect(store)(LitElement) {
   @property({ type: Date }) date=new Date();
@@ -52,7 +53,7 @@ export class CalrumRootComponent extends connect(store)(LitElement) {
     `;
   }
   submitEvent() {
-      const dateEvent={id:new DateIdentifier(this.date,"day").identifier as number,date:this.date,label:this.label}
+      const dateEvent={id:new Guid().toString(),dateId:new DateIdentifier(this.date,"day").identifier as number,date:this.date,label:this.label}
     this.dispatchEvent(
       new CustomEvent<DateEvent>("submitEvent", { detail: dateEvent })
     );

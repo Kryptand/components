@@ -10,7 +10,7 @@ export interface AddEventAction extends Action<EVENT_ACTIONS.AddEvent> {
 }
 
 export interface DeleteEventAction extends Action<EVENT_ACTIONS.DeleteEvent> {
-  id: number;
+  id: string;
 }
 export interface UpdateEventAction extends Action<EVENT_ACTIONS.UpdateEvent> {
   event: DateEvent;
@@ -28,5 +28,16 @@ export const addEvent = (event: DateEvent) => (
   dispatch({
     type: EVENT_ACTIONS.AddEvent,
     event
+  });
+};
+
+export const removeEvent = (id: string) => (
+  dispatch: any,
+  getState: any
+) => {
+    getState;
+  dispatch({
+    type: EVENT_ACTIONS.DeleteEvent,
+    id
   });
 };
