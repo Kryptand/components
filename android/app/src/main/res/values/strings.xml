@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources>
-    <string name="app_name">cosmosurge</string>
-    <string name="title_activity_main">cosmosurge</string>
-    <string name="package_name">kryptand.cosmosurge</string>
-    <string name="fileprovider_authority">kryptand.cosmosurge.fileprovider</string>
-    <string name="custom_url_scheme">kryptand.cosmosurge</string>
-</resources>
