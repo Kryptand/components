@@ -287,8 +287,12 @@
       "schematics": {},
       "architect": {
         "build": {
-          "builder": "@nrwl/web:build",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
+            "customWebpackConfig": {
+              "path": "./apps/calrum/webpack.config.js",
+              "mergeStrategies": { "externals": "replace" }
+            },
             "outputPath": "dist/apps/calrum",
             "index": "apps/calrum/src/index.html",
             "main": "apps/calrum/src/main.ts",
@@ -296,28 +300,20 @@
             "tsConfig": "apps/calrum/tsconfig.app.json",
             "assets": [
               "apps/calrum/src/favicon.ico",
-              "apps/calrum/src/assets",
-              "apps/calrum/src/manifest.json"
+              "apps/calrum/src/assets"
             ],
             "styles": ["apps/calrum/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "apps/calrum/src/environments/environment.ts",
-                  "with": "apps/calrum/src/environments/environment.prod.ts"
-                }
-              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
-              "namedChunks": false,
+              "namedChunks": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "serviceWorker": true,
               "budgets": [
                 {
                   "type": "initial",
