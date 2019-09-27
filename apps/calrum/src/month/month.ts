@@ -1,17 +1,18 @@
-import "@polymer/iron-icon/iron-icon";
-import "@polymer/iron-icons/iron-icons";
-import "@vaadin/vaadin-select/vaadin-select";
-import "@vaadin/vaadin-text-field/vaadin-number-field";
-import { customElement, eventOptions, html, LitElement, property, TemplateResult } from "lit-element";
-import { connect } from "pwa-helpers/connect-mixin";
-import { addEvent } from "../+state/event/event.action";
-import { store } from "../+state/store";
-import "../event/create-event.form";
-import { renderCalendarRow } from "../utility/date";
-import { getWeekDaysForWeek } from "../utility/date-manipulation/week";
-import { getMonthNamesInYear } from "./../utility/date-manipulation/month";
-import { style } from "./month.styles";
-import { displayNotification } from '../utility/notification';
+import '../event-overlay/event-overlay';
+import '@polymer/iron-icon/iron-icon';
+import '@polymer/iron-icons/iron-icons';
+import '@vaadin/vaadin-select/vaadin-select';
+import '@vaadin/vaadin-text-field/vaadin-number-field';
+
+import { customElement, eventOptions, html, LitElement, property, TemplateResult } from 'lit-element';
+import { connect } from 'pwa-helpers/connect-mixin';
+
+import { store } from '../+state/store';
+import { renderCalendarRow } from '../utility/date';
+import { getWeekDaysForWeek } from '../utility/date-manipulation/week';
+import { getMonthNamesInYear } from './../utility/date-manipulation/month';
+import { style } from './month.styles';
+
 @customElement("calrum-month")
 export class MonthComponent extends connect(store)(LitElement) {
   static get styles() {
@@ -32,17 +33,11 @@ export class MonthComponent extends connect(store)(LitElement) {
     this.currentMonth = new Date(e.target.value).getMonth();
   }
 
-  @eventOptions({ capture: false, passive: true })
-  private dateAddedEvent(e: any) {
-   displayNotification(e.detail.label,e.detail.date);
-  store.dispatch(addEvent(e.detail));
-  }
+
 
   protected render(): TemplateResult {
     return html`
-        <calrum-event-form
-        @submitEvent="${this.dateAddedEvent}"
-      ></calrum-event-form>
+      <calrum-event-form-overlay></calrum-event-form-overlay>
       <div class="month-indicator">
         <vaadin-number-field
           @change="${this.yearChanged}"

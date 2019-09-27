@@ -1,5 +1,6 @@
 import { html } from "lit-element";
 import { generateCalendarArr } from "./date-manipulation/calendar";
+
 import '../day-container/day-container';
 export const renderCalendarRow = (month: number, year: number) => {
   return generateCalendarArr(year, month,{weekStartDay:1,   formatDate: (date:Date) =>date}).map(
@@ -8,7 +9,7 @@ export const renderCalendarRow = (month: number, year: number) => {
         ${x.map(
           (y:any) =>
             html`
-              <div class="day ${typeof y!=='number'?'empty':'filled'}"><calrum-day-container date="${new Date(y)}"></calrum-day-container></div>
+            <calrum-day-container date="${new Date(y)}"></calrum-day-container>
             `
         )}
       </div>

@@ -1,17 +1,19 @@
 import { Reducer } from "redux";
 import { createSelector } from 'reselect';
 import { DateEvent, DateIdentifier } from "../../models/event";
-import { EventActionUnion, EVENT_ACTIONS } from "./event.action";
+import { EventActionUnion, EVENT_ACTIONS, OverlayStateChangeEvent } from "./event.action";
 
 
 export interface EventState {
   ids:number[];
   events: DateEvent[];
+  overlayOpened:OverlayStateChangeEvent;
 }
 
 const INITIAL_STATE: EventState = {
     ids:[],
-    events:[]
+    events:[],
+    overlayOpened:undefined
 };
 
 export const eventReducer: Reducer<EventState, EventActionUnion> = (state = INITIAL_STATE, action) => {
@@ -27,6 +29,10 @@ export const eventReducer: Reducer<EventState, EventActionUnion> = (state = INIT
       return {
         ...state,  events:[...state.events,{...state.events.find(x=>x.id===action.event.id),...action.event}],
       };
+      case EVENT_ACTIONS.OverlayStateChangeEvent:
+        return {
+          ...state, overlayOpened:action.change,
+        };
     case EVENT_ACTIONS.DeleteEvent:
       console.debug(action);
       const id=state.events.find(x=>x.id===action.id).dateId;
@@ -37,6 +43,7 @@ export const eventReducer: Reducer<EventState, EventActionUnion> = (state = INIT
       return state;
   }
 };
+export const getOverlayStateSelector=(state:EventState)=>state.overlayOpened;
 
 export const getEventsSelector=(state: EventState)=>state.events;
 export const getEventsForDate=(event:Date)=>{

@@ -13,7 +13,7 @@ export const style= css`
   }
 
   .grid-container * {
-   
+
     border: 1px solid red;
     position: relative;
   }
@@ -25,7 +25,7 @@ export const style= css`
   .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows:  1fr  1fr  1fr 1fr 1fr 1fr  1fr;
+    grid-template-rows: auto calc(100%/7) calc(100%/7) calc(100%/7) calc(100%/7) calc(100%/7) calc(100%/7) calc(100%/7);
     grid-template-areas: "weeknames weeknames weeknames weeknames weeknames weeknames weeknames" "first-week first-week first-week first-week first-week first-week first-week" "second-week second-week second-week second-week second-week second-week second-week" "third-week third-week third-week third-week third-week third-week third-week" "fourth-week fourth-week fourth-week fourth-week fourth-week fourth-week fourth-week" "fifth-week fifth-week fifth-week fifth-week fifth-week fifth-week fifth-week" "sixth-week sixth-week sixth-week sixth-week sixth-week sixth-week sixth-week";
   }
 
@@ -76,7 +76,7 @@ export const style= css`
     grid-template-areas: ". . . . . . .";
     grid-area: fifth-week;
   }
-  
+
   .sixth-week {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -87,4 +87,4 @@ export const style= css`
   #year {
     margin: 5px;
   }
-`; 
+`;

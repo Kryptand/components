@@ -17,7 +17,7 @@ import '@vaadin/vaadin-form-layout';
 import { Guid } from '../models/guid';
 @customElement("calrum-event-form")
 export class CalrumRootComponent extends connect(store)(LitElement) {
-  @property({ type: Date }) date=new Date();
+  @property({ type: String }) date=new Date().toISOString().substring(0, 10);
   @property({type:String}) label='';
 
   static styles = css`
@@ -25,9 +25,14 @@ export class CalrumRootComponent extends connect(store)(LitElement) {
       display: block;
     }
   `;
+
+  constructor(){
+    super();
+    console.debug(this.date);
+  }
   @eventOptions({ capture: false, passive: true })
   private dateChanged(e: any) {
-    this.date =new Date(e.target.value);
+    this.date =e.target.value;
   }
   @eventOptions({ capture: false, passive: true })
   private labelChanged(e: any) {
@@ -35,6 +40,7 @@ export class CalrumRootComponent extends connect(store)(LitElement) {
   }
   protected render(): TemplateResult {
     return html`
+    ${this.date}
       <vaadin-form-layout>
         <vaadin-date-picker
           @change="${this.dateChanged}"
@@ -53,9 +59,16 @@ export class CalrumRootComponent extends connect(store)(LitElement) {
     `;
   }
   submitEvent() {
-      const dateEvent={id:new Guid().toString(),dateId:new DateIdentifier(this.date,"day").identifier as number,date:this.date,label:this.label}
-    this.dispatchEvent(
+      const dateEvent={id:new Guid().toString(),dateId:new DateIdentifier(new Date(this.date),"day").identifier as number,date:new Date(this.date),label:this.label}
+      console.debug(dateEvent);
+      this.dispatchEvent(
       new CustomEvent<DateEvent>("submitEvent", { detail: dateEvent })
     );
+    this.resetForm();
+  }
+
+  private resetForm() {
+    this.date = '';
+    this.label = '';
   }
 }
