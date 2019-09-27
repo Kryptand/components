@@ -28,7 +28,12 @@ export class PatientAddEditComponent implements OnInit {
       );
     }
   }
+  hydratePatientWithId(patient:Patient,id:string){
+    const patientRef=patient;
+    patientRef.id=id;
+    return patientRef;
+  }
   save() {
-    this.savePatientEventTriggered.emit(this.patientForm.value);
+    this.savePatientEventTriggered.emit(this.hydratePatientWithId(this.patientForm.value,this.patient.id));
   }
 }

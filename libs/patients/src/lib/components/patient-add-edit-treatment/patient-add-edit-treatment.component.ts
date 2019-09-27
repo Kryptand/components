@@ -31,7 +31,13 @@ export class PatientAddEditTreatmentComponent implements OnInit {
       );
     }
   }
+  hydrateTreatmentWithId(treatment:Treatment,id:string){
+    const treatmentRef=treatment;
+    treatmentRef.id=id;
+    return treatmentRef;
+  }
+
   save() {
-    this.saveTreatmentEventTriggered.emit(this.treatmentForm.value);
+    this.saveTreatmentEventTriggered.emit(this.hydrateTreatmentWithId(this.treatmentForm.value,this.treatment.id));
   }
 }

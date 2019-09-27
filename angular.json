@@ -233,6 +233,30 @@
             "browserTarget": "cosmosurge:build"
           }
         },
+        "ionic-cordova-build": {
+          "builder": "@ionic/angular-toolkit:cordova-build",
+          "options": {
+            "browserTarget": "cosmosurge:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "cosmosurge:build:production"
+            }
+          }
+        },
+        "ionic-cordova-serve": {
+          "builder": "@ionic/angular-toolkit:cordova-serve",
+          "options": {
+            "cordovaBuildTarget": "cosmosurge:ionic-cordova-build",
+            "devServerTarget": "cosmosurge:serve"
+          },
+          "configurations": {
+            "production": {
+              "cordovaBuildTarget": "cosmosurge:ionic-cordova-build:production",
+              "devServerTarget": "cosmosurge:serve:production"
+            }
+          }
+        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
@@ -291,17 +315,16 @@
           "options": {
             "customWebpackConfig": {
               "path": "./apps/calrum/webpack.config.js",
-              "mergeStrategies": { "externals": "replace" }
+              "mergeStrategies": {
+                "externals": "replace"
+              }
             },
             "outputPath": "dist/apps/calrum",
             "index": "apps/calrum/src/index.html",
             "main": "apps/calrum/src/main.ts",
             "polyfills": "apps/calrum/src/polyfills.ts",
             "tsConfig": "apps/calrum/tsconfig.app.json",
-            "assets": [
-              "apps/calrum/src/favicon.ico",
-              "apps/calrum/src/assets"
-            ],
+            "assets": ["apps/calrum/src/favicon.ico", "apps/calrum/src/assets"],
             "styles": ["apps/calrum/src/styles.scss"],
             "scripts": []
           },
@@ -799,6 +822,33 @@
           "styleext": "scss"
         }
       }
+    },
+    "renderer": {
+      "projectType": "library",
+      "root": "libs/renderer",
+      "sourceRoot": "libs/renderer/src",
+      "prefix": "kryptand",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/renderer/tsconfig.lib.json",
+              "libs/renderer/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/renderer/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/renderer/jest.config.js",
+            "tsConfig": "libs/renderer/tsconfig.spec.json",
+            "setupFile": "libs/renderer/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {

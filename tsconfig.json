@@ -30,7 +30,8 @@
       "@kryptand/notification": ["libs/notification/src/index.ts"],
       "@kryptand/panel": ["libs/panel/src/index.ts"],
       "@kryptand/tabs": ["libs/tabs/src/index.ts"],
-      "@kryptand/utility": ["libs/utility/src/index.ts"]
+      "@kryptand/utility": ["libs/utility/src/index.ts"],
+      "@kryptand/renderer": ["libs/renderer/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

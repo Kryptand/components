@@ -1,8 +1,14 @@
 {
-  "name": "kryptand",
-  "integrations": {
-    "capacitor": {},
-    "cordova": {}
-  },
-  "type": "angular"
+  "defaultProject": "cosmosurge",
+  "projects": {
+    "cosmosurge": {
+      "name": "Cosmosurge",
+      "integrations": {
+        "cordova":{},
+        "capacitor":{}
+      },
+      "type": "angular",
+      "root": "apps/cosmosurge"
+    }
+  }
 }

@@ -55,6 +55,9 @@
     },
     "utility": {
       "tags": []
+    },
+    "renderer": {
+      "tags": []
     }
   }
 }

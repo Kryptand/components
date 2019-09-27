@@ -42,6 +42,7 @@
     "@capacitor/android": "^1.2.0",
     "@capacitor/core": "1.2.0",
     "@ionic/angular": "^4.9.0",
+    "@ionic/pwa-elements": "^1.4.1",
     "@ionic/storage": "^2.2.0",
     "@nrwl/angular": "8.5.0",
     "@polymer/app-layout": "^3.0.0",
@@ -68,7 +69,7 @@
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "^8.2.0",
-    "@angular-devkit/build-angular": "^0.803.3",
+    "@angular-devkit/build-angular": "^0.803.4",
     "@angular-devkit/build-ng-packagr": "~0.803.3",
     "@angular/cli": "8.3.3",
     "@angular/compiler-cli": "^8.2.0",
@@ -80,6 +81,7 @@
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.5.5",
     "@capacitor/cli": "1.2.0",
+    "@loadable/webpack-plugin": "^5.7.1",
     "@nrwl/cypress": "8.5.0",
     "@nrwl/jest": "8.5.0",
     "@nrwl/web": "^8.5.0",
@@ -102,7 +104,6 @@
     "tsickle": "^0.37.0",
     "tslint": "~5.11.0",
     "typescript": "~3.4.5",
-    "webpack": "4.39.3",
     "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.8.0",
     "workbox-webpack-plugin": "^4.3.1"
