@@ -3,6 +3,7 @@ import { DateEvent } from "../../models/event";
 export interface OverlayStateChangeEvent{
   change:boolean;
   origin:Date;
+  originalDate?:DateEvent;
 }
 export enum EVENT_ACTIONS {
   AddEvent = "[Event] Add",
@@ -27,7 +28,13 @@ export type EventActionUnion =
   | UpdateEventAction
   | OverlayStateChangeEventAction
   | DeleteEventAction;
-
+export const updateEvent=(event:DateEvent)=>(dispatch:any,getState:any)=>{
+  getState;
+  dispatch({
+    type: EVENT_ACTIONS.UpdateEvent,
+    event
+  });
+}
 export const addEvent = (event: DateEvent) => (
   dispatch: any,
   getState: any

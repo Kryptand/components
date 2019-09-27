@@ -12,11 +12,7 @@ export const style= css`
     margin: 0;
   }
 
-  .grid-container * {
 
-    border: 1px solid red;
-    position: relative;
-  }
   .month-indicator {
     display: flex;
     align-items: center;
@@ -30,7 +26,12 @@ export const style= css`
   }
 
   .weeknames {
+    border-bottom: 3px solid var(--accent-color);
     display: grid;
+    color: var(--calrum-primary-contrast);
+    text-transform: uppercase;
+    text-align: center;
+    background: var(--calrum-on-background);
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     grid-template-areas: ". . . . . . .";
@@ -84,7 +85,10 @@ export const style= css`
     grid-template-areas: ". . . . . . .";
     grid-area: sixth-week;
   }
-  #year {
+  #year,#add-alert {
     margin: 5px;
+  }
+  .kryptand-icon{
+    color:var(--calrum-primary-contrast);
   }
 `;

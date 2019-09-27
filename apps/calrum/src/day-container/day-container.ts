@@ -13,9 +13,7 @@ import { RootState, store } from '../+state/store';
 import { DateEvent, DateIdentifier } from '../models/event';
 import { removeEvent, overlayStateChange } from '../+state/event/event.action';
 import { style } from './day-container.style';
-import '@polymer/paper-dialog/paper-dialog';
-import { PaperDialogElement } from '@polymer/paper-dialog/paper-dialog';
-@customElement('calrum-day-container')
+import '@polymer/paper-dialog/paper-dialog';@customElement('calrum-day-container')
 export class DayContainerComponent extends connect(store)(LitElement) {
   @property({ type: Date }) date = new Date();
   @property({ type: Array }) events: DateEvent[] = [];
@@ -24,9 +22,13 @@ export class DayContainerComponent extends connect(store)(LitElement) {
   }
   constructor() {
     super();
-    this.addEventListener('click', _ => {
-      store.dispatch(overlayStateChange({change:true,origin:this.date}));
-    });
+
+  }
+  changeOverlayInState(item?:DateEvent) {
+    if(item){
+      return store.dispatch(overlayStateChange({change:true,origin:this.date,originalDate:item}))
+    }
+    store.dispatch(overlayStateChange({ change: true, origin: this.date }));
   }
   stateChanged(state: RootState) {
     if (!isNullOrUndefined(this.date)) {
@@ -39,6 +41,7 @@ export class DayContainerComponent extends connect(store)(LitElement) {
     store.dispatch(removeEvent(e));
   }
 
+
   private renderEvent(): TemplateResult[] {
     const id = new DateIdentifier(this.date).identifier;
     const filteredEvents = this.events.filter(x => x.dateId === id);
@@ -46,18 +49,24 @@ export class DayContainerComponent extends connect(store)(LitElement) {
       x =>
         html`
           <div class="event">
-            ${x.label}<span
-              class="delete"
-              @click=${() => this.deleteEvent(x.id)}
-              >X</span
-            >
+            <span class="text" @click=${() => this.changeOverlayInState(x)} title=${x.label}> ${x.label}</span>
+            <span class="spacer"></span>
+            <vaadin-button @click=${() => this.deleteEvent(x.id)} class="event-empty">
+              <iron-icon icon="delete"></iron-icon>
+            </vaadin-button>
           </div>
         `
     );
   }
   protected render(): TemplateResult {
     return html`
-      ${new Date(this.date).getDate()}
+    <div class="date-header">
+    <span class="text" >${new Date(this.date).getDate()}</span>
+    <span class="spacer"></span>
+    <vaadin-button @click=${() => this.changeOverlayInState()} class="event-empty">
+      <iron-icon icon="add"></iron-icon>
+    </vaadin-button>
+    </div>
       <div class="events">
         ${this.renderEvent()}
       </div>

@@ -89,12 +89,36 @@
       window.process = { env: { NODE_ENV: "production" } };
     </script>
 
-    <!-- Add any global styles for body, document, etc. -->
+    <dom-module id="custom-select" theme-for="vaadin-text-field vaadin-select-text-field vaadin-item">
+    <template>
+      <style>
+        :host([theme~="custom"]) {
+          font-family: 'Karla', sans-serif;
+        }
+      </style>
+    </template>
+  </dom-module>
+  <dom-module id="custom-select-overlay" theme-for="vaadin-text-field vaadin-select-overlay">
+    <template>
+      <style>
+        :host([theme~="custom"]) [part~="overlay"] { font-family: 'Karla', sans-serif;
+          background: linear-gradient(hsla(214, 61%, 25%, 0.05), hsla(214, 61%, 25%, 0.05)) #fff;
+        }
+      </style>
+    </template>
+  </dom-module>
     <style>
       :root {
+        --lumo-font-family: 'Karla', sans-serif;
+        --calrum-font-family: 'Karla', sans-serif;
+        --lumo-button-color: var(--calrum-primary-contrast);
+        --lumo-primary-text-color:var(--calrum-primary-contrast);
+        --lumo-primary-color:var(--calrum-primary-contrast);
+        --lumo-primary-color-10pct:var(--calrum-secondary-10pct);
         --calrum-primary: #27fdf5;
         --calrum-font-size: 16px;
         --calrum-secondary: #a8f6f8;
+        --calrum-secondary-10pct:#d9f5f8;
         --calrum-background: #fbfcfc;
         --calrum-on-background: #1c2833;
         --calrum-on-primary: #050709;
@@ -130,24 +154,11 @@
         font-size: var(--calrum-h1-font-size);
       }
 
-      @font-face {
-        font-family: "Pacifico";
-        font-style: normal;
-        font-weight: 400;
-        src: local("Pacifico Regular"), local("Pacifico-Regular"),
-          url(https://fonts.gstatic.com/s/pacifico/v12/Q_Z9mv4hySLTMoMjnk_rCXYhjbSpvc47ee6xR_80Hnw.woff2)
-            format("woff2");
-        /* The browser draws the text immediately in the fallback font if the font
-           isn't loaded, then swaps it with the webfont when it eventually loads
-           See: https://developers.google.com/web/updates/2016/02/font-display
-        */
-        font-display: swap;
-      }
+
       body {
         margin: 0;
         /* This is a font-stack that tries to use the system-default sans-serifs first */
-        font-family: Helvetica, Arial, sans-serif, "Apple Color Emoji",
-          "Segoe UI Emoji", "Segoe UI Symbol";
+        font-family: 'Karla', sans-serif;
         line-height: 1.5;
         min-height: 100vh;
         background-color: var(--calrum-background);
@@ -161,6 +172,8 @@
     <noscript>
       Please enable JavaScript to view this website.
     </noscript>
+    <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
     <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <script type="module" src="./main.js"></script>
   </body>
