@@ -40,23 +40,50 @@ export class MonthComponent extends connect(store)(LitElement) {
   private monthChanged(e: any) {
     this.currentMonth = new Date(e.target.value).getMonth();
   }
+  @eventOptions({ capture: false, passive: true })
+  private increaseMonth() {
+    if (this.currentMonth === 11) {
+      this.currentMonth = 0;
+      return;
+    }
+    this.currentMonth = this.currentMonth + 1;
+  }
+  @eventOptions({ capture: false, passive: true })
+  private decreaseMonth() {
+    console.debug(this.currentMonth);
+    if (this.currentMonth === 0) {
+      this.currentMonth = 11;
+      return;
+    }
+    this.currentMonth = this.currentMonth - 1;
+  }
 
   @eventOptions({ capture: false, passive: true })
   private addIconClicked(e: any) {
-    store.dispatch(overlayStateChange({change:true,origin:new Date()}))
+    store.dispatch(overlayStateChange({ change: true, origin: new Date() }));
   }
 
   protected render(): TemplateResult {
     return html`
       <calrum-event-form-overlay></calrum-event-form-overlay>
       <div class="month-indicator">
-        <vaadin-number-field theme="custom"
+        <vaadin-button
+          class="kryptand-icon"
+          @click="${this.decreaseMonth}"
+          id="month-previous"
+          aria-label="Monat zuvor"
+        >
+          <iron-icon icon="chevron-left"></iron-icon>
+        </vaadin-button>
+        <vaadin-number-field
+          theme="custom"
           @change="${this.yearChanged}"
           value="${this.currentYear}"
           id="year"
           has-controls
         ></vaadin-number-field>
-        <vaadin-select theme="custom"
+        <vaadin-select
+          theme="custom"
           @value-changed="${this.monthChanged}"
           value="${this.currentMonth + 1}"
         >
@@ -72,7 +99,21 @@ export class MonthComponent extends connect(store)(LitElement) {
             </vaadin-list-box>
           </template>
         </vaadin-select>
-        <vaadin-button class="kryptand-icon" @click="${this.addIconClicked}" id="add-alert" aria-label="Eintrag hinzufügen">
+        <vaadin-button
+          class="kryptand-icon"
+          @click="${this.increaseMonth}"
+          id="month-after"
+          aria-label="Monat später"
+        >
+          <iron-icon icon="chevron-right"></iron-icon>
+        </vaadin-button>
+
+        <vaadin-button
+          class="kryptand-icon"
+          @click="${this.addIconClicked}"
+          id="add-alert"
+          aria-label="Eintrag hinzufügen"
+        >
           <iron-icon icon="add-alert"></iron-icon>
         </vaadin-button>
       </div>
