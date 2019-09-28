@@ -28,7 +28,6 @@ export class CalrumRootComponent extends connect(store)(LitElement) {
 
   constructor() {
     super();
-    console.debug(this.date);
   }
   @eventOptions({ capture: false, passive: true })
   private dateChanged(e: any) {
@@ -39,7 +38,6 @@ export class CalrumRootComponent extends connect(store)(LitElement) {
     this.label = e.target.value;
   }
   updated(properties){
-    console.debug(properties);
   }
   protected render(): TemplateResult {
     return html`
@@ -70,23 +68,17 @@ export class CalrumRootComponent extends connect(store)(LitElement) {
       label: this.label
     };
     if (this.id!=="") {
-      console.debug(this.id);
       dateEvent.id = this.id;
       this.dispatchEvent(
         new CustomEvent<DateEvent>('updateEvent', { detail: dateEvent })
       );
-      this.resetForm();
       return;
     }
     this.dispatchEvent(
       new CustomEvent<DateEvent>('addEvent', { detail: dateEvent })
     );
-    this.resetForm();
+
   }
 
-  private resetForm() {
-    this.id = '';
-    this.date = '';
-    this.label = '';
-  }
+
 }

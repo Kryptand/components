@@ -46,7 +46,6 @@ export class MonthNavigationComponent extends connect(store)(LitElement) {
   }
   @eventOptions({ capture: false, passive: true })
   private decreaseMonth() {
-    console.debug(this.currentMonth);
     if (this.currentMonth === 0) {
       this.currentMonth = 11;
       this.dispatchEvent(

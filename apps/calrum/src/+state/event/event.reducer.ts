@@ -25,7 +25,6 @@ export const eventReducer: Reducer<EventState, EventActionUnion> = (
 ) => {
   switch (action.type) {
     case EVENT_ACTIONS.AddEvent:
-      console.debug(action);
       const ids = state.ids.filter(x => x !== action.event.dateId);
       return {
         ...state,

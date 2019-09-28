@@ -49,6 +49,9 @@ export class CalrumRootComponent extends connect(store)(LitElement) {
      const {change,origin,originalDate}= getOverlayStateSelector(state.event);
       this.opened=change;
       this.origin=origin;
+      this.id="";
+      this.label="";
+
       if(!isNullOrUndefined(originalDate)){
         this.label=originalDate.label;
         this.id=originalDate.id;

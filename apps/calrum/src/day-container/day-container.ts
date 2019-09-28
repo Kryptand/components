@@ -37,7 +37,6 @@ export class DayContainerComponent extends connect(store)(LitElement) {
   }
   @eventOptions({ capture: false, passive: true })
   deleteEvent(e: any) {
-    console.debug(e);
     store.dispatch(removeEvent(e));
   }
 
