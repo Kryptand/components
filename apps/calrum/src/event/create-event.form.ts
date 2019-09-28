@@ -37,8 +37,7 @@ export class CalrumRootComponent extends connect(store)(LitElement) {
   private labelChanged(e: any) {
     this.label = e.target.value;
   }
-  updated(properties){
-  }
+
   protected render(): TemplateResult {
     return html`
     ${this.id}

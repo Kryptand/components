@@ -13,7 +13,8 @@ import { RootState, store } from '../+state/store';
 import { DateEvent, DateIdentifier } from '../models/event';
 import { removeEvent, overlayStateChange } from '../+state/event/event.action';
 import { style } from './day-container.style';
-import '@polymer/paper-dialog/paper-dialog';@customElement('calrum-day-container')
+import '@polymer/paper-dialog/paper-dialog';
+@customElement('calrum-day-container')
 export class DayContainerComponent extends connect(store)(LitElement) {
   @property({ type: Date }) date = new Date();
   @property({ type: Array }) events: DateEvent[] = [];
@@ -25,6 +26,7 @@ export class DayContainerComponent extends connect(store)(LitElement) {
 
   }
   changeOverlayInState(item?:DateEvent) {
+    console.debug('asd');
     if(item){
       return store.dispatch(overlayStateChange({change:true,origin:this.date,originalDate:item}))
     }
