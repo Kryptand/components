@@ -1,4 +1,4 @@
-import '../event-overlay/event-overlay';
+import '../event/event-overlay';
 import '@polymer/iron-icon/iron-icon';
 import '@polymer/iron-icons/iron-icons';
 import '@vaadin/vaadin-select/vaadin-select';
