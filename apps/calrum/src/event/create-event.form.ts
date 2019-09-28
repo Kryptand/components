@@ -37,10 +37,11 @@ export class CalrumRootComponent extends connect(store)(LitElement) {
   private labelChanged(e: any) {
     this.label = e.target.value;
   }
-
+  updated(properties){
+    console.debug(properties);
+  }
   protected render(): TemplateResult {
     return html`
-    ${this.id}
       <vaadin-form-layout>
         <vaadin-date-picker
           @change="${this.dateChanged}"
@@ -68,11 +69,12 @@ export class CalrumRootComponent extends connect(store)(LitElement) {
     };
     if (this.id!=="") {
       dateEvent.id = this.id;
-      this.dispatchEvent(
+      this.label="";
+      return  this.dispatchEvent(
         new CustomEvent<DateEvent>('updateEvent', { detail: dateEvent })
       );
-      return;
     }
+    this.label="";
     this.dispatchEvent(
       new CustomEvent<DateEvent>('addEvent', { detail: dateEvent })
     );

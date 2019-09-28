@@ -26,10 +26,11 @@ export class DayContainerComponent extends connect(store)(LitElement) {
 
   }
   changeOverlayInState(item?:DateEvent) {
-    console.debug('asd');
+
     if(item){
       return store.dispatch(overlayStateChange({change:true,origin:this.date,originalDate:item}))
     }
+
     store.dispatch(overlayStateChange({ change: true, origin: this.date }));
   }
   stateChanged(state: RootState) {

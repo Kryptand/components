@@ -8,10 +8,9 @@ import {
   TemplateResult
 } from 'lit-element';
 import { connect } from 'pwa-helpers/connect-mixin';
-import './../event/create-event.form';
+import './create-event.form';
 import { addEvent, overlayStateChange, updateEvent } from '../+state/event/event.action';
 import { store, RootState } from '../+state/store';
-import { displayNotification } from '../utility/notification';
 import { isNullOrUndefined } from '../utility/throw-if-null-or-undefined';
 import { getOverlayStateSelector } from '../+state/event/event.reducer';
 import { PaperDialogElement } from '@polymer/paper-dialog/paper-dialog';
@@ -49,9 +48,7 @@ export class CalrumRootComponent extends connect(store)(LitElement) {
      const {change,origin,originalDate}= getOverlayStateSelector(state.event);
       this.opened=change;
       this.origin=origin;
-      this.id="";
-      this.label="";
-
+      this.resetForm();
       if(!isNullOrUndefined(originalDate)){
         this.label=originalDate.label;
         this.id=originalDate.id;
@@ -62,9 +59,14 @@ export class CalrumRootComponent extends connect(store)(LitElement) {
       this.opened ? dialog.open() : dialog.close();
     }
   }
+  private resetForm() {
+    this.id = '';
+    this.label = '';
+  }
+
   @eventOptions({ capture: false, passive: true })
   private dateAddedEvent(e: any) {
-    displayNotification(e.detail.label, e.detail.date);
+    // displayNotification(e.detail.label, e.detail.date);
     store.dispatch(addEvent(e.detail));
     store.dispatch(overlayStateChange({change:false,origin:new Date()}));
   }

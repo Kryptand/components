@@ -1,11 +1,5 @@
-import '../event-overlay/event-overlay';
 import './left-right-navigation';
 import './month-navigation-inputs';
-import '@polymer/iron-icon/iron-icon';
-import '@polymer/iron-icons/iron-icons';
-import '@vaadin/vaadin-select/vaadin-select';
-import '@vaadin/vaadin-text-field/vaadin-number-field';
-
 import {
   customElement,
   eventOptions,
@@ -16,7 +10,6 @@ import {
   css
 } from 'lit-element';
 import { connect } from 'pwa-helpers/connect-mixin';
-
 import { store } from '../+state/store';
 
 @customElement('calrum-month-navigation')
