@@ -1,0 +1,35 @@
+
+.datatable-header {
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  min-height: 1.5rem;
+  width: auto;
+
+  border-radius: calc(0.125rem - 1px) 0 0;
+  text-align: left;
+  min-width: 4rem;
+  display: flex;
+  flex: 1 1 auto;
+  vertical-align: top;
+  border: none;
+}
+
+.datatable-header-cell {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: 0 0;
+  color: #575757;
+  text-align: left;
+  flex: 1 1 auto;
+  align-items: baseline;
+  align-self: center;
+  display: flex;
+}

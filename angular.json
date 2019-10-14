@@ -25,7 +25,9 @@
               "apps/kryptand/src/favicon.ico",
               "apps/kryptand/src/assets"
             ],
-            "styles": ["apps/kryptand/src/styles.scss"],
+            "styles": [
+              "apps/kryptand/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -84,7 +86,10 @@
               "apps/kryptand/tsconfig.app.json",
               "apps/kryptand/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/kryptand/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/kryptand/**"
+            ]
           }
         },
         "calrum": {
@@ -118,8 +123,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/kryptand-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/kryptand-e2e/**"]
+            "tsConfig": [
+              "apps/kryptand-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/kryptand-e2e/**"
+            ]
           }
         }
       }
@@ -137,7 +147,10 @@
               "libs/patients/tsconfig.lib.json",
               "libs/patients/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/patients/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/patients/**"
+            ]
           }
         },
         "calrum": {
@@ -181,7 +194,9 @@
                 "output": "./svg"
               }
             ],
-            "styles": ["apps/cosmosurge/src/styles.css"],
+            "styles": [
+              "apps/cosmosurge/src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -264,7 +279,10 @@
               "apps/cosmosurge/tsconfig.app.json",
               "apps/cosmosurge/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/cosmosurge/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/cosmosurge/**"
+            ]
           }
         },
         "calrum": {
@@ -298,8 +316,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/cosmosurge-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/cosmosurge-e2e/**"]
+            "tsConfig": [
+              "apps/cosmosurge-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/cosmosurge-e2e/**"
+            ]
           }
         }
       }
@@ -324,8 +347,13 @@
             "main": "apps/calrum/src/main.ts",
             "polyfills": "apps/calrum/src/polyfills.ts",
             "tsConfig": "apps/calrum/tsconfig.app.json",
-            "assets": ["apps/calrum/src/favicon.ico", "apps/calrum/src/assets"],
-            "styles": ["apps/calrum/src/styles.scss"],
+            "assets": [
+              "apps/calrum/src/favicon.ico",
+              "apps/calrum/src/assets"
+            ],
+            "styles": [
+              "apps/calrum/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -367,7 +395,10 @@
               "apps/calrum/tsconfig.app.json",
               "apps/calrum/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/calrum/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/calrum/**"
+            ]
           }
         },
         "calrum": {
@@ -403,8 +434,13 @@
           "options": {
             "linter": "eslint",
             "config": "apps/calrum-e2e/.eslintrc",
-            "tsConfig": ["apps/calrum-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/calrum-e2e/**"]
+            "tsConfig": [
+              "apps/calrum-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/calrum-e2e/**"
+            ]
           }
         }
       }
@@ -463,7 +499,10 @@
               "libs/breadcrumb/tsconfig.lib.json",
               "libs/breadcrumb/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/breadcrumb/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/breadcrumb/**"
+            ]
           }
         },
         "test": {
@@ -501,7 +540,10 @@
               "libs/cards/tsconfig.lib.json",
               "libs/cards/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/cards/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/cards/**"
+            ]
           }
         },
         "test": {
@@ -539,7 +581,10 @@
               "libs/loader/tsconfig.lib.json",
               "libs/loader/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/loader/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/loader/**"
+            ]
           }
         },
         "test": {
@@ -577,7 +622,10 @@
               "libs/message/tsconfig.lib.json",
               "libs/message/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/message/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/message/**"
+            ]
           }
         },
         "test": {
@@ -615,7 +663,10 @@
               "libs/modal/tsconfig.lib.json",
               "libs/modal/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/modal/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/modal/**"
+            ]
           }
         },
         "test": {
@@ -653,7 +704,10 @@
               "libs/navigation/tsconfig.lib.json",
               "libs/navigation/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/navigation/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/navigation/**"
+            ]
           }
         },
         "test": {
@@ -691,7 +745,10 @@
               "libs/notification/tsconfig.lib.json",
               "libs/notification/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/notification/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/notification/**"
+            ]
           }
         },
         "test": {
@@ -729,7 +786,10 @@
               "libs/panel/tsconfig.lib.json",
               "libs/panel/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/panel/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/panel/**"
+            ]
           }
         },
         "test": {
@@ -767,7 +827,10 @@
               "libs/tabs/tsconfig.lib.json",
               "libs/tabs/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/tabs/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/tabs/**"
+            ]
           }
         },
         "test": {
@@ -805,7 +868,10 @@
               "libs/utility/tsconfig.lib.json",
               "libs/utility/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/utility/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/utility/**"
+            ]
           }
         },
         "test": {
@@ -836,7 +902,10 @@
               "libs/renderer/tsconfig.lib.json",
               "libs/renderer/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/renderer/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/renderer/**"
+            ]
           }
         },
         "test": {
@@ -849,18 +918,458 @@
         }
       },
       "schematics": {}
+    },
+    "courseman": {
+      "root": "apps/courseman",
+      "sourceRoot": "apps/courseman/src",
+      "projectType": "application",
+      "prefix": "courseman",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/courseman",
+            "main": "apps/courseman/src/main.ts",
+            "tsConfig": "apps/courseman/tsconfig.app.json",
+            "assets": [
+              "apps/courseman/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/courseman/src/environments/environment.ts",
+                  "with": "apps/courseman/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "courseman:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/courseman/tsconfig.app.json",
+              "apps/courseman/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/courseman/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/courseman/jest.config.js",
+            "tsConfig": "apps/courseman/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "coursefrontman": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/coursefrontman",
+      "sourceRoot": "apps/coursefrontman/src",
+      "prefix": "kryptand",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/coursefrontman",
+            "index": "apps/coursefrontman/src/index.html",
+            "main": "apps/coursefrontman/src/main.ts",
+            "polyfills": "apps/coursefrontman/src/polyfills.ts",
+            "tsConfig": "apps/coursefrontman/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/coursefrontman/src/favicon.ico",
+              "apps/coursefrontman/src/assets"
+            ],
+            "styles": [
+              "apps/coursefrontman/src/styles.scss",
+              "node_modules/@clr/ui/clr-ui.min.css",
+              "node_modules/@clr/icons/clr-icons.min.css",
+              "node_modules/devextreme/dist/css/dx.common.css",
+              "node_modules/devextreme/dist/css/dx.light.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/coursefrontman/src/environments/environment.ts",
+                  "with": "apps/coursefrontman/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "coursefrontman:build",
+            "proxyConfig": "apps/coursefrontman/proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "coursefrontman:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "coursefrontman:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/coursefrontman/tsconfig.app.json",
+              "apps/coursefrontman/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/coursefrontman/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/coursefrontman/jest.config.js",
+            "tsConfig": "apps/coursefrontman/tsconfig.spec.json",
+            "setupFile": "apps/coursefrontman/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "coursefrontman-e2e": {
+      "root": "apps/coursefrontman-e2e",
+      "sourceRoot": "apps/coursefrontman-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/coursefrontman-e2e/cypress.json",
+            "tsConfig": "apps/coursefrontman-e2e/tsconfig.e2e.json",
+            "devServerTarget": "coursefrontman:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "coursefrontman:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/coursefrontman-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/coursefrontman-e2e/**"
+            ]
+          }
+        }
+      }
+    },
+    "master-data-person": {
+      "projectType": "library",
+      "root": "libs/master-data/person",
+      "sourceRoot": "libs/master-data/person/src",
+      "prefix": "kryptand",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/master-data/person/tsconfig.lib.json",
+              "libs/master-data/person/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/master-data/person/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/master-data/person/jest.config.js",
+            "tsConfig": "libs/master-data/person/tsconfig.spec.json",
+            "setupFile": "libs/master-data/person/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "master-data-company": {
+      "projectType": "library",
+      "root": "libs/master-data/company",
+      "sourceRoot": "libs/master-data/company/src",
+      "prefix": "kryptand",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/master-data/company/tsconfig.lib.json",
+              "libs/master-data/company/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/master-data/company/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/master-data/company/jest.config.js",
+            "tsConfig": "libs/master-data/company/tsconfig.spec.json",
+            "setupFile": "libs/master-data/company/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "common-data-address": {
+      "projectType": "library",
+      "root": "libs/common-data/address",
+      "sourceRoot": "libs/common-data/address/src",
+      "prefix": "kryptand",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/common-data/address/tsconfig.lib.json",
+              "libs/common-data/address/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/common-data/address/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/common-data/address/jest.config.js",
+            "tsConfig": "libs/common-data/address/tsconfig.spec.json",
+            "setupFile": "libs/common-data/address/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "common-data-gender": {
+      "projectType": "library",
+      "root": "libs/common-data/gender",
+      "sourceRoot": "libs/common-data/gender/src",
+      "prefix": "kryptand",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/common-data/gender/tsconfig.lib.json",
+              "libs/common-data/gender/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/common-data/gender/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/common-data/gender/jest.config.js",
+            "tsConfig": "libs/common-data/gender/tsconfig.spec.json",
+            "setupFile": "libs/common-data/gender/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "common-data-salutation": {
+      "projectType": "library",
+      "root": "libs/common-data/salutation",
+      "sourceRoot": "libs/common-data/salutation/src",
+      "prefix": "kryptand",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/common-data/salutation/tsconfig.lib.json",
+              "libs/common-data/salutation/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/common-data/salutation/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/common-data/salutation/jest.config.js",
+            "tsConfig": "libs/common-data/salutation/tsconfig.spec.json",
+            "setupFile": "libs/common-data/salutation/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "common-data-title": {
+      "projectType": "library",
+      "root": "libs/common-data/title",
+      "sourceRoot": "libs/common-data/title/src",
+      "prefix": "kryptand",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/common-data/title/tsconfig.lib.json",
+              "libs/common-data/title/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/common-data/title/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/common-data/title/jest.config.js",
+            "tsConfig": "libs/common-data/title/tsconfig.spec.json",
+            "setupFile": "libs/common-data/title/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "common-data-structure": {
+      "projectType": "library",
+      "root": "libs/common-data/structure",
+      "sourceRoot": "libs/common-data/structure/src",
+      "prefix": "kryptand",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/common-data/structure/tsconfig.lib.json",
+              "libs/common-data/structure/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/common-data/structure/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/common-data/structure/jest.config.js",
+            "tsConfig": "libs/common-data/structure/tsconfig.spec.json",
+            "setupFile": "libs/common-data/structure/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "structure": {
+      "projectType": "library",
+      "root": "libs/structure",
+      "sourceRoot": "libs/structure/src",
+      "prefix": "kryptand",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/structure/tsconfig.lib.json",
+              "libs/structure/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/structure/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/structure/jest.config.js",
+            "tsConfig": "libs/structure/tsconfig.spec.json",
+            "setupFile": "libs/structure/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/angular"
+    "defaultCollection": "@nrwl/schematics"
   },
   "schematics": {
     "@nrwl/angular:application": {
       "unitcalrumRunner": "jest",
-      "e2ecalrumRunner": "cypress"
+      "e2ecalrumRunner": "cypress",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
     },
     "@nrwl/angular:library": {
-      "unitcalrumRunner": "jest"
+      "unitcalrumRunner": "jest",
+      "unitTestRunner": "jest"
     }
   },
   "defaultProject": "kryptand"

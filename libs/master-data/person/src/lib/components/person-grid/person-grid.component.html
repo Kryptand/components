@@ -1,0 +1,20 @@
+<dx-data-grid
+  id="gridContainer"
+  [dataSource]="dataSource"
+  [remoteOperations]="true"
+  [wordWrapEnabled]="true"
+  [columnHidingEnabled]="true"
+  [showBorders]="true"
+  keyExpr="id"
+  (onSelectionChanged)="selectionChangedHandler($event)"
+>
+  <dxo-search-panel
+    [visible]="true"
+    [highlightCaseSensitive]="true"
+  ></dxo-search-panel>
+  <dxo-selection
+  mode="multiple">
+</dxo-selection>
+  <dxo-scrolling mode="virtual" rowRenderingMode="virtual"></dxo-scrolling>
+  <dxo-paging [pageSize]="20"></dxo-paging>
+</dx-data-grid>

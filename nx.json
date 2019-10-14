@@ -58,6 +58,39 @@
     },
     "renderer": {
       "tags": []
+    },
+    "courseman": {
+      "tags": []
+    },
+    "coursefrontman-e2e": {
+      "tags": []
+    },
+    "coursefrontman": {
+      "tags": []
+    },
+    "master-data-person": {
+      "tags": []
+    },
+    "master-data-company": {
+      "tags": []
+    },
+    "common-data-address": {
+      "tags": []
+    },
+    "common-data-gender": {
+      "tags": []
+    },
+    "common-data-salutation": {
+      "tags": []
+    },
+    "common-data-title": {
+      "tags": []
+    },
+    "common-data-structure": {
+      "tags": []
+    },
+    "structure": {
+      "tags": []
     }
   }
 }
