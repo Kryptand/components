@@ -6,10 +6,10 @@ import { AddressService } from './address.service';
 
 @Crud({
   model: {
-    type: AddressEntity,  },
+    type: AddressEntity
+  }
 })
 @Controller('address')
 export class AddressController {
-  constructor(private readonly addressService:AddressService){
-  }
+  constructor(private readonly addressService: AddressService) {}
 }

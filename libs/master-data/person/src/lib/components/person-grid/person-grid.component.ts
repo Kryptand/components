@@ -13,7 +13,10 @@ export class PersonGridComponent   {
 @Input() dataSource:any;
 @Output() onePersonSelected:EventEmitter<Person>=new EventEmitter();
 @Output() multiPersonSelected:EventEmitter<Person>=new EventEmitter();
+@Output() selectionChanged:EventEmitter<Person|Person[]>=new EventEmitter();
 @Output() deselect:EventEmitter<any>=new EventEmitter();
+@Output() favouritesChanged:EventEmitter<Person>=new EventEmitter();
+selection:any[]=[];
 selectionChangedHandler(selection:any){
   if(!selection){
     this.deselect.emit();
@@ -25,5 +28,13 @@ selectionChangedHandler(selection:any){
     this.onePersonSelected.emit(selection.selectedRowKeys[0]);
   }
   this.multiPersonSelected.emit(selection.selectedRowKeys);
+  this.selectionChanged.emit(selection.selectedRowKeys);
 }
+​
+    onToolbarPreparing(e) {
+        e.toolbarOptions.items.unshift({
+            location: 'before',
+            template: 'totalGroupCount'
+        });
+      }
 }

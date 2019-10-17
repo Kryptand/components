@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {AbstractEntityService} from '@kryptand/infrastructure-contracts';
-import { Address } from '../models/address';
-
+import { Title } from '../models/title';
 const API_URL='http://localhost:3333/api';
+
 @Injectable()
-export class AddressService extends AbstractEntityService<Address> {
+export class TitleService extends AbstractEntityService<Title> {
   constructor(protected http: HttpClient) {
     super(API_URL,http);
   }

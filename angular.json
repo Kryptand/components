@@ -25,9 +25,7 @@
               "apps/kryptand/src/favicon.ico",
               "apps/kryptand/src/assets"
             ],
-            "styles": [
-              "apps/kryptand/src/styles.scss"
-            ],
+            "styles": ["apps/kryptand/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -86,10 +84,7 @@
               "apps/kryptand/tsconfig.app.json",
               "apps/kryptand/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/kryptand/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/kryptand/**"]
           }
         },
         "calrum": {
@@ -123,13 +118,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/kryptand-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/kryptand-e2e/**"
-            ]
+            "tsConfig": ["apps/kryptand-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/kryptand-e2e/**"]
           }
         }
       }
@@ -147,10 +137,7 @@
               "libs/patients/tsconfig.lib.json",
               "libs/patients/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/patients/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/patients/**"]
           }
         },
         "calrum": {
@@ -194,9 +181,7 @@
                 "output": "./svg"
               }
             ],
-            "styles": [
-              "apps/cosmosurge/src/styles.css"
-            ],
+            "styles": ["apps/cosmosurge/src/styles.css"],
             "scripts": []
           },
           "configurations": {
@@ -279,10 +264,7 @@
               "apps/cosmosurge/tsconfig.app.json",
               "apps/cosmosurge/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/cosmosurge/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/cosmosurge/**"]
           }
         },
         "calrum": {
@@ -316,13 +298,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/cosmosurge-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/cosmosurge-e2e/**"
-            ]
+            "tsConfig": ["apps/cosmosurge-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/cosmosurge-e2e/**"]
           }
         }
       }
@@ -347,13 +324,8 @@
             "main": "apps/calrum/src/main.ts",
             "polyfills": "apps/calrum/src/polyfills.ts",
             "tsConfig": "apps/calrum/tsconfig.app.json",
-            "assets": [
-              "apps/calrum/src/favicon.ico",
-              "apps/calrum/src/assets"
-            ],
-            "styles": [
-              "apps/calrum/src/styles.scss"
-            ],
+            "assets": ["apps/calrum/src/favicon.ico", "apps/calrum/src/assets"],
+            "styles": ["apps/calrum/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -395,10 +367,7 @@
               "apps/calrum/tsconfig.app.json",
               "apps/calrum/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/calrum/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/calrum/**"]
           }
         },
         "calrum": {
@@ -434,13 +403,8 @@
           "options": {
             "linter": "eslint",
             "config": "apps/calrum-e2e/.eslintrc",
-            "tsConfig": [
-              "apps/calrum-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/calrum-e2e/**"
-            ]
+            "tsConfig": ["apps/calrum-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/calrum-e2e/**"]
           }
         }
       }
@@ -499,10 +463,7 @@
               "libs/breadcrumb/tsconfig.lib.json",
               "libs/breadcrumb/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/breadcrumb/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/breadcrumb/**"]
           }
         },
         "test": {
@@ -540,10 +501,7 @@
               "libs/cards/tsconfig.lib.json",
               "libs/cards/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/cards/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/cards/**"]
           }
         },
         "test": {
@@ -581,10 +539,7 @@
               "libs/loader/tsconfig.lib.json",
               "libs/loader/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/loader/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/loader/**"]
           }
         },
         "test": {
@@ -622,10 +577,7 @@
               "libs/message/tsconfig.lib.json",
               "libs/message/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/message/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/message/**"]
           }
         },
         "test": {
@@ -663,10 +615,7 @@
               "libs/modal/tsconfig.lib.json",
               "libs/modal/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/modal/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/modal/**"]
           }
         },
         "test": {
@@ -704,10 +653,7 @@
               "libs/navigation/tsconfig.lib.json",
               "libs/navigation/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/navigation/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/navigation/**"]
           }
         },
         "test": {
@@ -745,10 +691,7 @@
               "libs/notification/tsconfig.lib.json",
               "libs/notification/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/notification/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/notification/**"]
           }
         },
         "test": {
@@ -786,10 +729,7 @@
               "libs/panel/tsconfig.lib.json",
               "libs/panel/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/panel/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/panel/**"]
           }
         },
         "test": {
@@ -827,10 +767,7 @@
               "libs/tabs/tsconfig.lib.json",
               "libs/tabs/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/tabs/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/tabs/**"]
           }
         },
         "test": {
@@ -868,10 +805,7 @@
               "libs/utility/tsconfig.lib.json",
               "libs/utility/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/utility/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/utility/**"]
           }
         },
         "test": {
@@ -902,10 +836,7 @@
               "libs/renderer/tsconfig.lib.json",
               "libs/renderer/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/renderer/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/renderer/**"]
           }
         },
         "test": {
@@ -932,9 +863,7 @@
             "outputPath": "dist/apps/courseman",
             "main": "apps/courseman/src/main.ts",
             "tsConfig": "apps/courseman/tsconfig.app.json",
-            "assets": [
-              "apps/courseman/src/assets"
-            ]
+            "assets": ["apps/courseman/src/assets"]
           },
           "configurations": {
             "production": {
@@ -963,10 +892,7 @@
               "apps/courseman/tsconfig.app.json",
               "apps/courseman/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/courseman/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/courseman/**"]
           }
         },
         "test": {
@@ -1068,10 +994,7 @@
               "apps/coursefrontman/tsconfig.app.json",
               "apps/coursefrontman/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/coursefrontman/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/coursefrontman/**"]
           }
         },
         "test": {
@@ -1105,13 +1028,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/coursefrontman-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/coursefrontman-e2e/**"
-            ]
+            "tsConfig": ["apps/coursefrontman-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/coursefrontman-e2e/**"]
           }
         }
       }
@@ -1129,10 +1047,7 @@
               "libs/master-data/person/tsconfig.lib.json",
               "libs/master-data/person/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/master-data/person/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/master-data/person/**"]
           }
         },
         "test": {
@@ -1159,10 +1074,7 @@
               "libs/master-data/company/tsconfig.lib.json",
               "libs/master-data/company/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/master-data/company/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/master-data/company/**"]
           }
         },
         "test": {
@@ -1189,10 +1101,7 @@
               "libs/common-data/address/tsconfig.lib.json",
               "libs/common-data/address/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/common-data/address/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/common-data/address/**"]
           }
         },
         "test": {
@@ -1219,10 +1128,7 @@
               "libs/common-data/gender/tsconfig.lib.json",
               "libs/common-data/gender/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/common-data/gender/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/common-data/gender/**"]
           }
         },
         "test": {
@@ -1249,10 +1155,7 @@
               "libs/common-data/salutation/tsconfig.lib.json",
               "libs/common-data/salutation/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/common-data/salutation/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/common-data/salutation/**"]
           }
         },
         "test": {
@@ -1279,10 +1182,7 @@
               "libs/common-data/title/tsconfig.lib.json",
               "libs/common-data/title/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/common-data/title/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/common-data/title/**"]
           }
         },
         "test": {
@@ -1309,10 +1209,7 @@
               "libs/common-data/structure/tsconfig.lib.json",
               "libs/common-data/structure/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/common-data/structure/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/common-data/structure/**"]
           }
         },
         "test": {
@@ -1339,10 +1236,7 @@
               "libs/structure/tsconfig.lib.json",
               "libs/structure/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/structure/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/structure/**"]
           }
         },
         "test": {
@@ -1351,6 +1245,36 @@
             "jestConfig": "libs/structure/jest.config.js",
             "tsConfig": "libs/structure/tsconfig.spec.json",
             "setupFile": "libs/structure/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "infrastructure-contracts": {
+      "projectType": "library",
+      "root": "libs/infrastructure-contracts",
+      "sourceRoot": "libs/infrastructure-contracts/src",
+      "prefix": "kryptand",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/infrastructure-contracts/tsconfig.lib.json",
+              "libs/infrastructure-contracts/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/infrastructure-contracts/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/infrastructure-contracts/jest.config.js",
+            "tsConfig": "libs/infrastructure-contracts/tsconfig.spec.json",
+            "setupFile": "libs/infrastructure-contracts/src/test-setup.ts"
           }
         }
       },

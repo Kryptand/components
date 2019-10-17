@@ -1,3 +1,179 @@
-<p>
-  person-add-edit-form works!
-</p>
+<form clrForm [formGroup]="personForm" clrLayout="horizontal">
+  <clr-input-container>
+    <label>Vorname</label>
+    <input
+      placeholder="Vorname"
+      formControlName="firstName"
+      clrInput
+      name="firstName"
+    />
+  </clr-input-container>
+  <clr-input-container>
+    <label>Nachname</label>
+    <input
+      placeholder="Nachname"
+      formControlName="lastName"
+      clrInput
+      name="lastName"
+      required
+    />
+  </clr-input-container>
+  <clr-input-container>
+    <label>Geburtsname</label>
+    <input
+      placeholder="Geburtsname"
+      formControlName="birthName"
+      clrInput
+      name="birthName"
+    />
+  </clr-input-container>
+  <clr-input-container>
+    <label>Geburtsdatum</label>
+    <input
+      placeholder="Geburtsdatum"
+      type="datetime-local"
+      formControlName="birthday"
+      clrInput
+      name="birthday"
+    />
+  </clr-input-container>
+
+  <clr-select-container>
+    <label>Geschlecht</label>
+    <select
+      placeholder="Geschlecht"
+      formControlName="gender"
+      clrSelect
+      name="gender"
+    >
+      <ng-container *ngFor="let item of genders">
+        <option [ngValue]="{id:item.id}">{{ item.label }}</option>
+      </ng-container>
+    </select>
+  </clr-select-container>
+  <clr-select-container>
+    <label>Politischer Titel</label>
+    <select
+      placeholder="Politischer Titel"
+      formControlName="politicalTitle"
+      clrSelect
+      name="politicalTitle"
+    >
+      <ng-container *ngFor="let politicalTitle of politicalTitles">
+        <option [ngValue]="{id:politicalTitle.id}">{{ politicalTitle.label }}</option>
+      </ng-container>
+    </select>
+  </clr-select-container>
+  <clr-select-container>
+    <label>Akademischer Titel</label>
+    {{ academicTitles | json }}
+    <select
+      placeholder="Akademischer Titel"
+      formControlName="academicTitle"
+      clrSelect
+      name="academicTitle"
+    >
+      <ng-container *ngFor="let academicTitle of academicTitles">
+        <option [ngValue]="{id:academicTitle.id}">{{ academicTitle.label }}</option>
+      </ng-container>
+    </select>
+  </clr-select-container>
+  <clr-select-container>
+    <label>Ehrentitel</label>
+    <select
+      placeholder="Ehrentitel"
+      formControlName="honoraryTitle"
+      clrSelect
+      name="honoraryTitle"
+    >
+      <ng-container *ngFor="let honoraryTitle of honoraryTitles">
+        <option [ngValue]="honoraryTitle.id">{{ honoraryTitle.label }}</option>
+      </ng-container>
+    </select>
+  </clr-select-container>
+
+  <clr-select-container>
+    <label>Adelstitel</label>
+    <select
+      placeholder="Adelstitel"
+      formControlName="aristocraticTitle"
+      clrSelect
+      name="aristocraticTitle"
+    >
+      <ng-container *ngFor="let aristocraticTitle of aristocraticTitles">
+        <option [ngValue]="{id:aristocraticTitle.id}">{{
+          aristocraticTitle.label
+        }}</option>
+      </ng-container>
+    </select>
+  </clr-select-container>
+  <clr-select-container>
+    <label>Anrede</label>
+    <select
+      placeholder="Anrede"
+      formControlName="salutation"
+      clrSelect
+      name="salutation"
+    >
+      <ng-container *ngFor="let salutation of salutations">
+        <option [ngValue]="{id:salutation.id}">{{ salutation.label }}</option>
+      </ng-container>
+    </select>
+  </clr-select-container>
+  <div formGroupName="address">
+  <clr-input-container>
+    <label>Straße</label>
+    <input
+      placeholder="Straße"
+      formControlName="street"
+      clrInput
+      name="street"
+    />
+  </clr-input-container>
+  <clr-input-container>
+    <label>Hsnr</label>
+    <input
+      placeholder="Hsnr"
+      formControlName="streetNo"
+      clrInput
+      name="streetNo"
+    />
+  </clr-input-container>
+  <clr-input-container>
+    <label>Postleitzahl</label>
+    <input
+      placeholder="Postleitzahl"
+      formControlName="zip"
+      clrInput
+      name="zip"
+    />
+  </clr-input-container>
+  <clr-input-container>
+    <label>Stadt</label>
+    <input placeholder="Stadt" formControlName="city" clrInput name="city" />
+  </clr-input-container>
+  <clr-input-container>
+    <label>Bundesland</label>
+    <input
+      placeholder="Bundesland"
+      formControlName="county"
+      clrInput
+      name="county"
+    />
+  </clr-input-container>
+  <clr-input-container>
+    <label>Land</label>
+    <input
+      placeholder="Land"
+      formControlName="country"
+      clrInput
+      name="country"
+    />
+  </clr-input-container>
+</div>
+  <button
+    type="button"
+    class="btn btn-primary"
+    (click)="submit(personForm)"
+  >Absenden</button>
+</form>

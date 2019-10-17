@@ -1,3 +1,4 @@
+
 <div class="tabs-vertical">
   <ul class="nav" role="tablist">
     <li role="presentation" class="nav-item">
@@ -60,7 +61,26 @@
     [dataSource]="gridDataSource"
     (onePersonSelected)="personFacade.selectByKey($event)"
     (multiPersonSelected)="personFacade.selectManyByKeys($event)"
+    (selectionChanged)="selectionChanged($event)"
     (deselect)="personFacade.deselectAll()"
   >
+  <ng-container slot="gridHeader" *ngIf="(personFacade.currentSetKeys$|async) as keys">
+
+    <ng-container *ngIf="keys.length===1">
+    <button class="btn btn-primary" (click)="overlayOpened=!overlayOpened">Editieren</button>
+      <button class="btn btn-primary" (click)="favourite(keys)">Favorit</button>
+    </ng-container>
+    <ng-container *ngIf="keys.length > 1">
+        <button class="btn btn-primary" (click)="favourite(keys)">Favorit</button>
+   </ng-container>
+
+  </ng-container>
   </kryptand-person-grid>
 </div>
+    <clr-modal [(clrModalOpen)]="overlayOpened" [clrModalStaticBackdrop]="false">
+        <h3 class="modal-title">{{selection[0]?'Person ändern':'Person hinzufügen'}}</h3>
+        <div class="modal-body">
+            <kryptand-person-add-edit-container (saveChange)="entityChanged()" [(opened)]="overlayOpened" [person]="selection[0]"></kryptand-person-add-edit-container>
+        </div>
+
+    </clr-modal>

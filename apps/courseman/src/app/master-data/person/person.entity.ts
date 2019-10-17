@@ -42,7 +42,6 @@ export class PersonEntity extends AbstractEntity {
     eager: true,
     onDelete: 'NO ACTION'
   })
-
   @JoinColumn()
   salutation: SalutationEntity;
   @ManyToOne(() => TitleEntity, {

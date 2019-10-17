@@ -36,5 +36,9 @@ export class PersonFacade extends PersonFacadeBase {
       );
     }
 
+    setFavourites(selection:Partial<Person>[]){
+      throw new Error('not implemented');
+    }
+
 
   }

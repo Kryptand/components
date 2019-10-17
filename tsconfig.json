@@ -11,87 +11,51 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@kryptand/patients": [
-        "libs/patients/src/index.ts"
-      ],
+      "@kryptand/patients": ["libs/patients/src/index.ts"],
       "@kryptand/delayed-http-operations": [
         "libs/delayed-http-operations/src/index.ts"
       ],
-      "@kryptand/breadcrumb": [
-        "libs/breadcrumb/src/index.ts"
-      ],
-      "@kryptand/cards": [
-        "libs/cards/src/index.ts"
-      ],
-      "@kryptand/loader": [
-        "libs/loader/src/index.ts"
-      ],
-      "@kryptand/message": [
-        "libs/message/src/index.ts"
-      ],
-      "@kryptand/modal": [
-        "libs/modal/src/index.ts"
-      ],
-      "@kryptand/navigation": [
-        "libs/navigation/src/index.ts"
-      ],
-      "@kryptand/notification": [
-        "libs/notification/src/index.ts"
-      ],
-      "@kryptand/panel": [
-        "libs/panel/src/index.ts"
-      ],
-      "@kryptand/tabs": [
-        "libs/tabs/src/index.ts"
-      ],
-      "@kryptand/utility": [
-        "libs/utility/src/index.ts"
-      ],
-      "@kryptand/renderer": [
-        "libs/renderer/src/index.ts"
-      ],
-      "@kryptand/master-data/person": [
-        "libs/master-data/person/src/index.ts"
-      ],
+      "@kryptand/breadcrumb": ["libs/breadcrumb/src/index.ts"],
+      "@kryptand/cards": ["libs/cards/src/index.ts"],
+      "@kryptand/loader": ["libs/loader/src/index.ts"],
+      "@kryptand/message": ["libs/message/src/index.ts"],
+      "@kryptand/modal": ["libs/modal/src/index.ts"],
+      "@kryptand/navigation": ["libs/navigation/src/index.ts"],
+      "@kryptand/notification": ["libs/notification/src/index.ts"],
+      "@kryptand/panel": ["libs/panel/src/index.ts"],
+      "@kryptand/tabs": ["libs/tabs/src/index.ts"],
+      "@kryptand/utility": ["libs/utility/src/index.ts"],
+      "@kryptand/renderer": ["libs/renderer/src/index.ts"],
+      "@kryptand/master-data/person": ["libs/master-data/person/src/index.ts"],
       "@kryptand/master-data/company": [
         "libs/master-data/company/src/index.ts"
       ],
       "@kryptand/common-data/address": [
         "libs/common-data/address/src/index.ts"
       ],
-      "@kryptand/common-data/gender": [
-        "libs/common-data/gender/src/index.ts"
-      ],
+      "@kryptand/common-data/gender": ["libs/common-data/gender/src/index.ts"],
       "@kryptand/common-data/salutation": [
         "libs/common-data/salutation/src/index.ts"
       ],
-      "@kryptand/common-data/title": [
-        "libs/common-data/title/src/index.ts"
-      ],
+      "@kryptand/common-data/title": ["libs/common-data/title/src/index.ts"],
       "@kryptand/common-data/structure": [
         "libs/common-data/structure/src/index.ts"
       ],
-      "@kryptand/structure": [
-        "libs/structure/src/index.ts"
+      "@kryptand/structure": ["libs/structure/src/index.ts"],
+      "jszip": ["node_modules/jszip/dist/jszip.min.js"],
+      "@kryptand/infrastracture-contracts": [
+        "libs/infrastracture-contracts/src/index.ts"
       ],
-      "jszip": [
-        "node_modules/jszip/dist/jszip.min.js"
+      "@kryptand/infrastructure-contracts": [
+        "libs/infrastructure-contracts/src/index.ts"
       ]
     }
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }

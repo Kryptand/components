@@ -1,3 +1,11 @@
-<clr-modal [(clrModalOpen)]="opened" [clrModalStaticBackdrop]="false">
-
-</clr-modal>
+<kryptand-person-add-edit-form
+(submitEventTriggered)="savePerson($event)"
+  [aristocraticTitles]="titleFacade.aristocraticTitles$ | async"
+  [politicalTitles]="titleFacade.politicalTitles$ | async"
+  [honoraryTitles]="titleFacade.honoraryTitles$ | async"
+  [salutations]="salutationFacade.all$ | async"
+  [academicTitles]="titleFacade.academicTitles$ | async"
+  [genders]="genderFacade.all$|async"
+  [person]="person"
+  (validated)="canSave = $event"
+></kryptand-person-add-edit-form>

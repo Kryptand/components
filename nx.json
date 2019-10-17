@@ -91,6 +91,9 @@
     },
     "structure": {
       "tags": []
+    },
+    "infrastructure-contracts": {
+      "tags": []
     }
   }
 }

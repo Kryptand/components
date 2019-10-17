@@ -6,15 +6,19 @@
   [columnHidingEnabled]="true"
   [showBorders]="true"
   keyExpr="id"
+  (onToolbarPreparing)="onToolbarPreparing($event)"
   (onSelectionChanged)="selectionChangedHandler($event)"
 >
   <dxo-search-panel
     [visible]="true"
     [highlightCaseSensitive]="true"
   ></dxo-search-panel>
-  <dxo-selection
-  mode="multiple">
-</dxo-selection>
+  <dxo-selection mode="multiple"> </dxo-selection>
   <dxo-scrolling mode="virtual" rowRenderingMode="virtual"></dxo-scrolling>
   <dxo-paging [pageSize]="20"></dxo-paging>
+  <div *dxTemplate="let data of 'totalGroupCount'">
+    <ng-content select="[slot='gridHeader']">
+    </ng-content>
+  </div>
+  <ng-content select="[slot='columnDef']"></ng-content>
 </dx-data-grid>
