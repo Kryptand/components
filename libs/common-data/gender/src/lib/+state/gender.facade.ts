@@ -1,6 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IEntityState, IEntityWithPageInfo, IPage } from '@briebug/ngrx-auto-entity';
+import {
+  IEntityState,
+  IEntityWithPageInfo,
+  IPage
+} from '@briebug/ngrx-auto-entity';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -19,9 +23,6 @@ export class GenderFacade extends GenderFacadeBase {
     { page = 1, size = 25 }: IPage,
     criteria?: any
   ): Observable<IEntityWithPageInfo<Gender>> {
-    console.debug(page);
-    console.debug(size);
-
     const url: string = criteria
       ? `${API_URL}/gender?page=${page}&limit=${size}&${criteria}`
       : `${API_URL}/gender?page=${page}&limit=${size}`;

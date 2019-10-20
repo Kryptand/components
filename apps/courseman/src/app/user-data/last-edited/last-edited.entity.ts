@@ -1,15 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToOne, ManyToOne, OneToMany, JoinColumn, AfterUpdate, BeforeUpdate } from 'typeorm';
-import { AbstractEntity } from '../../contracts/abstract-entity';
+import { Column, Entity } from 'typeorm';
+import { AbstractTypedMasterDataEntity } from '../../contracts/abstract-typed-master-data-entity';
 
 @Entity('lastEdited')
-export class LastEditedEntity extends AbstractEntity{
-
+export class LastEditedEntity extends AbstractTypedMasterDataEntity {
   @Column({ nullable: false })
-  entityId:string;
-
+  entityId: string;
   @Column({ nullable: false })
-  entityType:string;
-
-  @Column({ nullable: false })
-  userId:string;
+  userId: string;
 }

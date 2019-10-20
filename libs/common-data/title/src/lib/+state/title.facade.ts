@@ -46,8 +46,6 @@ export class TitleFacade extends TitleFacadeBase {
     { page = 1, size = 25 }: IPage,
     criteria?: any
   ): Observable<IEntityWithPageInfo<Title>> {
-    console.debug(page);
-    console.debug(size);
     const url: string = criteria
       ? `${API_URL}/title?page=${page}&limit=${size}&${criteria}`
       : `${API_URL}/title?page=${page}&limit=${size}`;

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgrxAutoEntityModule } from '@briebug/ngrx-auto-entity';
@@ -19,14 +19,24 @@ import { CommonDataAddressModule } from '@kryptand/common-data/address';
 import { CommonDataGenderModule } from '@kryptand/common-data/gender';
 import { CommonDataSalutationModule } from '@kryptand/common-data/salutation';
 import { CommonDataTitleModule } from '@kryptand/common-data/title';
-
+import { SplitPipe } from './split.pipe';
+import { JwtInterceptor, ErrorInterceptor } from '@kryptand/auth';
 @NgModule({
-  declarations: [PersonOverviewComponent, PersonGridComponent,PersonAddEditContainerComponent,PersonAddEditFormComponent],
+  declarations: [
+    PersonOverviewComponent,
+    PersonGridComponent,
+    PersonAddEditContainerComponent,
+    PersonAddEditFormComponent,
+    SplitPipe
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    RouterModule.forChild([{ component: PersonOverviewComponent, path: '' }]),
+    RouterModule.forChild([
+      { component: PersonOverviewComponent, path: '' },
+      { component: PersonOverviewComponent, path: 'favourites' }
+    ]),
     StoreModule.forFeature('person', personReducer),
     NgrxAutoEntityModule.forFeature(),
     ClarityModule,
@@ -37,6 +47,11 @@ import { CommonDataTitleModule } from '@kryptand/common-data/title';
     CommonDataSalutationModule,
     CommonDataTitleModule
   ],
-  providers: [{ provide: Person, useClass: PersonService }, PersonFacade]
+  providers: [
+    { provide: HTTP_INTERCEPTORS, multi: true, useClass: ErrorInterceptor },
+    { provide: HTTP_INTERCEPTORS, multi: true, useClass: JwtInterceptor },
+    { provide: Person, useClass: PersonService },
+    PersonFacade
+  ]
 })
 export class MasterDataPersonModule {}

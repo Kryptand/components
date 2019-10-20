@@ -17,8 +17,44 @@
   <dxo-scrolling mode="virtual" rowRenderingMode="virtual"></dxo-scrolling>
   <dxo-paging [pageSize]="20"></dxo-paging>
   <div *dxTemplate="let data of 'totalGroupCount'">
-    <ng-content select="[slot='gridHeader']">
-    </ng-content>
+    <ng-content select="[slot='gridHeader']"> </ng-content>
   </div>
   <ng-content select="[slot='columnDef']"></ng-content>
+  <dxi-column dataField="firstName" caption="Vorname"></dxi-column>
+  <dxi-column dataField="lastName" caption="Nachname"></dxi-column>
+  <dxi-column
+    dataField="tags"
+    caption="Tags"
+    dataType="array"
+    cellTemplate="tagTemplate"
+  ></dxi-column>
+  <div *dxTemplate="let cell of 'tagTemplate'">
+    <ng-container *ngFor="let tag of (cell.text | split)">
+      <span class="label label-purple" *ngIf="tag"> {{ tag }}</span>
+    </ng-container>
+  </div>
+
+  <dxi-column
+    dataField="favourite"
+    caption="Favorit"
+    dataType="boolean"
+    cellTemplate="favouriteTemplate"
+    [allowSorting]="false"
+  ></dxi-column>
+  <div *dxTemplate="let cell of 'favouriteTemplate'">
+    <clr-icon *ngIf="cell.value" shape="heart" class="is-solid"></clr-icon>
+    <clr-icon *ngIf="cell.value == null" shape="heart"></clr-icon>
+  </div>
+  <dxi-column
+    dataField="birthday"
+    caption="Geburtsdatum"
+    dataType="date"
+  ></dxi-column>
+
+  <dxi-column dataField="address.street" caption="Straße"> </dxi-column>
+  <dxi-column dataField="address.streetNo" caption="Nummer"> </dxi-column>
+  <dxi-column dataField="address.zip" caption="Plz"> </dxi-column>
+  <dxi-column dataField="address.city" caption="Stadt"> </dxi-column>
+  <dxi-column dataField="address.county" caption="Bundesland"> </dxi-column>
+  <dxi-column dataField="address.country" caption="Land"> </dxi-column>
 </dx-data-grid>

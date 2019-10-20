@@ -65,7 +65,6 @@ export class PersonAddEditFormComponent implements OnChanges, OnInit {
   }
   ngOnChanges(): void {
     if (this.person) {
-      console.debug(this.person);
       this.personForm.patchValue(this.person);
     }
   }

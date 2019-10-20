@@ -1,10 +1,8 @@
-import { Component, AfterViewInit, OnInit } from '@angular/core';
-import { PersonFacade } from '../../+state/person.facade';
-import { Person } from '../../models/person';
-import { Observable } from 'rxjs';
-import { IEntityWithPageInfo } from '@briebug/ngrx-auto-entity';
+import { Component, OnInit } from '@angular/core';
 import CustomStore from 'devextreme/data/custom_store';
 import DataSource from 'devextreme/data/data_source';
+import { PersonFacade } from '../../+state/person.facade';
+import { Person } from '../../models/person';
 type FILTER_TYPES = 'ALL' | 'FAVOURITES' | 'LAST_EDITED';
 @Component({
   selector: 'kryptand-person-overview',
@@ -15,41 +13,56 @@ export class PersonOverviewComponent implements OnInit {
   gridDataSource: DataSource = new DataSource([]);
   overlayOpened = false;
   selection: Partial<Person>[] = [];
+  type: FILTER_TYPES = 'ALL';
+
   export() {
     alert('export');
   }
+
   import() {
     alert('import');
   }
+
   filter(filterType: FILTER_TYPES) {
-    alert(filterType);
+    if (filterType === 'ALL') {
+      this.type = 'ALL';
+      this.loadGridData('person');
+    }
+    if (filterType === 'FAVOURITES') {
+      this.type = 'FAVOURITES';
+      this.loadGridData('person/listFavourites');
+    }
+    if (filterType === 'LAST_EDITED') {
+      this.type = 'LAST_EDITED';
+      this.loadGridData('person/listLastEdited');
+    }
   }
 
   add() {
     this.overlayOpened = !this.overlayOpened;
     this.selection = [];
   }
+
   print() {
     alert('print');
   }
-  favourite(selection) {
-    console.debug(selection);
-  }
+
+  favourite(selection) {}
   selectionChanged(selection: Partial<Person>[]) {
-    console.debug(selection);
     this.selection = selection;
   }
+
   constructor(public personFacade: PersonFacade) {}
 
   ngOnInit() {
     this.loadGridData();
   }
-  loadGridData() {
+  loadGridData(mode?: string) {
     this.gridDataSource = new DataSource(
       new CustomStore({
         load: async (loadOptions: any) => {
           let params = '';
-
+          console.debug(loadOptions);
           const page = loadOptions.skip / loadOptions.take + 1;
           const offset = loadOptions.take;
 
@@ -61,12 +74,10 @@ export class PersonOverviewComponent implements OnInit {
               params += ',ASC';
             }
           }
-          console.debug(loadOptions);
           try {
             const data = await this.personFacade
-              .loadPage({ page: page, size: offset }, params)
+              .loadPage({ page: page, size: offset }, params, mode)
               .toPromise();
-            console.debug(data);
             return {
               data: data.entities,
               totalCount: data.pageInfo.totalCount
@@ -78,6 +89,7 @@ export class PersonOverviewComponent implements OnInit {
       })
     );
   }
+
   gridOptionsChanged(change: any) {}
   entityChanged() {
     this.gridDataSource.reload();

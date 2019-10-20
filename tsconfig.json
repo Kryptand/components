@@ -54,7 +54,9 @@
       ],
       "@kryptand/infrastructure-contracts": [
         "libs/infrastructure-contracts/src/index.ts"
-      ]
+      ],
+      "@kryptand/auth": ["libs/auth/src/index.ts"],
+      "@kryptand/user-data/favourite": ["libs/user-data/favourite/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

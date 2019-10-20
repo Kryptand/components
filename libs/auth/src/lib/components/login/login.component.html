@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="login-wrapper">
+    <form class="login-form" clrForm [formGroup]="form" (ngSubmit)="submit()">
+      <section class="title">
+        <h1>Welcome</h1>
+      </section>
+      <div class="login-group">
+        <clr-input-container>
+          <label>Benutzername</label>
+          <input clrInput formControlName="username" />
+          <clr-control-error *clrIfError="'username'"
+            >Benutzername ungültig</clr-control-error
+          >
+        </clr-input-container>
+
+        <clr-password-container>
+          <label>Passwort</label>
+          <input clrPassword formControlName="password" type="password" />
+          <clr-control-error *clrIfError="'required'"
+            >Passwort erforderlich</clr-control-error
+          >
+        </clr-password-container>
+
+        <button class="btn">Login</button>
+      </div>
+    </form>
+  </div>
+</div>

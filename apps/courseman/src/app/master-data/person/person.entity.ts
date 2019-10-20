@@ -5,6 +5,7 @@ import { TitleEntity } from '../../common-data/title/title.entity';
 import { AbstractEntity } from '../../contracts/abstract-entity';
 import { AddressEntity } from './../../common-data/address/address.entity';
 import { GenderEntity } from './../../common-data/gender/gender.entity';
+import { FavouriteEntity } from '../../user-data/favourites/favourite.entity';
 
 @Entity('person')
 export class PersonEntity extends AbstractEntity {
@@ -33,11 +34,10 @@ export class PersonEntity extends AbstractEntity {
   @ManyToOne(() => AddressEntity, {
     eager: true,
     onDelete: 'NO ACTION',
-    cascade:true
+    cascade: true
   })
   @JoinColumn()
   address: AddressEntity;
-
   @ManyToOne(() => SalutationEntity, {
     eager: true,
     onDelete: 'NO ACTION'
@@ -48,7 +48,6 @@ export class PersonEntity extends AbstractEntity {
     eager: true,
     onDelete: 'NO ACTION'
   })
-
   @JoinColumn()
   aristocraticTitle: TitleEntity;
   @ManyToOne(() => TitleEntity, {
@@ -69,4 +68,9 @@ export class PersonEntity extends AbstractEntity {
   })
   @JoinColumn()
   academicTitle: TitleEntity;
+
+  @Column({ type: 'simple-array', nullable: true })
+  tags: string[];
+
+  favourite: FavouriteEntity;
 }

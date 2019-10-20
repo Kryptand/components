@@ -1,7 +1,15 @@
-import { Component, OnInit, Input, Output, OnChanges, SimpleChanges, ElementRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  OnChanges,
+  SimpleChanges,
+  ElementRef
+} from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Person } from '../../models/person';
-import {ClrDatagridStateInterface} from "@clr/angular";
+import { ClrDatagridStateInterface } from '@clr/angular';
 import { IEntityWithPageInfo } from '@briebug/ngrx-auto-entity';
 import { ColumnMode } from '@swimlane/ngx-datatable';
 @Component({
@@ -9,32 +17,36 @@ import { ColumnMode } from '@swimlane/ngx-datatable';
   templateUrl: './person-grid.component.html',
   styleUrls: ['./person-grid.component.css']
 })
-export class PersonGridComponent   {
-@Input() dataSource:any;
-@Output() onePersonSelected:EventEmitter<Person>=new EventEmitter();
-@Output() multiPersonSelected:EventEmitter<Person>=new EventEmitter();
-@Output() selectionChanged:EventEmitter<Person|Person[]>=new EventEmitter();
-@Output() deselect:EventEmitter<any>=new EventEmitter();
-@Output() favouritesChanged:EventEmitter<Person>=new EventEmitter();
-selection:any[]=[];
-selectionChangedHandler(selection:any){
-  if(!selection){
-    this.deselect.emit();
+export class PersonGridComponent {
+  @Input() dataSource: any;
+  @Output() onePersonSelected: EventEmitter<Person> = new EventEmitter();
+  @Output() multiPersonSelected: EventEmitter<Person> = new EventEmitter();
+  @Output() selectionChanged: EventEmitter<
+    Person | Person[]
+  > = new EventEmitter();
+  @Output() deselect: EventEmitter<any> = new EventEmitter();
+  @Output() favouritesChanged: EventEmitter<Person> = new EventEmitter();
+  selection: any[] = [];
+  selectionChangedHandler(selection: any) {
+    if (!selection) {
+      this.deselect.emit();
+    }
+    if (selection.selectedRowKeys.length === 0) {
+      this.deselect.emit();
+    }
+    if (selection.selectedRowKeys.length === 1) {
+      this.onePersonSelected.emit(selection.selectedRowKeys[0]);
+    }
+    this.multiPersonSelected.emit(selection.selectedRowKeys);
+    this.selectionChanged.emit(selection.selectedRowKeys);
   }
-  if(selection.selectedRowKeys.length===0){
-    this.deselect.emit();
+  splitTag(tag: string): string[] {
+    return tag.split(',');
   }
-  if(selection.selectedRowKeys.length===1){
-    this.onePersonSelected.emit(selection.selectedRowKeys[0]);
+  onToolbarPreparing(e) {
+    e.toolbarOptions.items.unshift({
+      location: 'before',
+      template: 'totalGroupCount'
+    });
   }
-  this.multiPersonSelected.emit(selection.selectedRowKeys);
-  this.selectionChanged.emit(selection.selectedRowKeys);
-}
-​
-    onToolbarPreparing(e) {
-        e.toolbarOptions.items.unshift({
-            location: 'before',
-            template: 'totalGroupCount'
-        });
-      }
 }

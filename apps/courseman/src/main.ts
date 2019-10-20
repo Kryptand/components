@@ -20,13 +20,13 @@ async function bootstrap() {
     .setVersion('1.0')
     .addTag('course')
     .build();
-    const document = SwaggerModule.createDocument(app, options);
-    SwaggerModule.setup('api', app, document);
-    app.enableCors({
-      origin: "*",
-      methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-      allowedHeaders: "Content-Type, Accept",
-    });
+  const document = SwaggerModule.createDocument(app, options);
+  SwaggerModule.setup('api', app, document);
+  app.enableCors({
+    origin: '*',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    allowedHeaders: 'Content-Type, Accept, Authorization'
+  });
   await app.listen(port, () => {
     console.log('Listening at http://localhost:' + port + '/' + globalPrefix);
   });

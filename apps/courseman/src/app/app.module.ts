@@ -19,15 +19,14 @@ import { getMetadataArgsStorage } from 'typeorm';
       password: 'root',
       database: 'courseman',
       entities: getMetadataArgsStorage().tables.map(tbl => tbl.target),
-      synchronize: true,
+      synchronize: true
     }),
     CommonDataModule,
     AdministrativeDataModule,
     MasterDataModule,
-    UserDataModule,
-
+    UserDataModule
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService]
 })
 export class AppModule {}

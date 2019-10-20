@@ -14,7 +14,7 @@ export class PersonAddEditContainerComponent implements OnInit {
   canSave = false;
   @Input() opened: boolean;
   @Output() openedChange = new EventEmitter();
-  @Output() saveChange=new EventEmitter();
+  @Output() saveChange = new EventEmitter();
   constructor(
     public personFacade: PersonFacade,
     public salutationFacade: SalutationFacade,
@@ -27,14 +27,13 @@ export class PersonAddEditContainerComponent implements OnInit {
   }
 
   savePerson(formValue: any) {
-    console.debug(formValue);
     if (this.canSave) {
       const isCreate = formValue.id;
       isCreate
         ? this.personFacade.update(formValue)
         : this.personFacade.create(formValue);
-        this.saveChange.emit(true);
-        this.openedChange.emit(false);
+      this.saveChange.emit(true);
+      this.openedChange.emit(false);
     }
   }
   ngOnInit() {}
